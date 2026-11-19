@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAOL – Nova Friburgo LTDA</title>
+<meta name="description" content="FAOL – Nova Friburgo: empresa virtual de transporte coletivo no openOMSI, com 11 linhas, escalas em horário real e plano de carreira para motoristas.">
+<meta property="og:title" content="FAOL – Nova Friburgo LTDA">
+<meta property="og:description" content="11 linhas urbanas no openOMSI, escalas em horário real e plano de carreira. Venha ser motorista.">
+<meta property="og:image" content="imagens/banner_onibus_hd.jpg">
+<meta name="theme-color" content="#0A1F4D">
+<link rel="icon" type="image/png" href="imagens/icone.png">
+<link rel="apple-touch-icon" href="imagens/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<!-- TOPO -->
+<header id="inicio" class="topo">
+  <img class="foto ken" src="imagens/banner_onibus_hd.jpg" width="2180" height="1180" alt="" aria-hidden="true">
+  <div class="veu" aria-hidden="true"></div>
+  <div class="wrap barra">
+    <nav class="nav" aria-label="Principal">
+      <a href="#empresa">A empresa</a>
+      <a href="#linhas">Linhas</a>
+      <a href="#frota">Frota</a>
+      <a href="#carreira">Carreira</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a href="#trabalhe" class="btnY">Trabalhe conosco</a>
+  </div>
+  <div class="wrap heroi">
+    <div class="logo up"><img src="imagens/logo_branco.png" alt="FAOL Nova Friburgo"></div>
+    <div class="selo up" id="selo"><span class="pulse"></span><span id="selo-txt">Inauguração em breve</span></div>
+    <h1 class="h1 up d1">O transporte coletivo de passageiros de Nova Friburgo, <span>com padrão de empresa.</span></h1>
+    <p class="up d2">11 linhas urbanas no simulador openOMSI, com escalas, horários reais e uma equipe organizada como uma viação de verdade.</p>
+    <div class="acoes up d3">
+      <a href="#" class="btnY link-discord" data-convite>Quero ser motorista</a>
+      <a href="#frota" class="btnO">Conheça a frota</a>
+    </div>
+  </div>
+  <div class="faixas" aria-hidden="true"><i style="height:10px;background:#3BA7DD"></i><i style="height:6px;background:#FFFFFF"></i><i style="height:10px;background:#F5B800"></i></div>
+</header>
+
+<main>
+<!-- AGORA NA FAOL (dados ao vivo da Central) -->
+<section class="agora" aria-label="Agora na FAOL">
+  <div class="wrap">
+    <div class="cab">
+      <h2>Agora na FAOL</h2>
+      <div class="situacao"><span class="pulse" id="sit-bola"></span><span id="sit-txt">Servidor em preparação · atualizado automaticamente pela Central</span></div>
+    </div>
+    <div class="grade" id="stats"></div>
+    <p class="extra" id="agora-extra" hidden></p>
+  </div>
+</section>
+
+<!-- A EMPRESA -->
+<section id="empresa" class="empresa">
+  <div class="wrap">
+    <div class="txt">
+      <div class="rotulo">A empresa</div>
+      <h2 class="h2">Aqui você não só joga. Você trabalha na FAOL.</h2>
+      <p>Cada motorista tem matrícula, habilitação, escala e plano de carreira. A operação segue horário oficial de Brasília, clima real e o calendário de feriados da cidade, com uma Central de Operações acompanhando o serviço o tempo todo.</p>
+    </div>
+    <div class="pilares" id="pilares"></div>
+  </div>
+</section>
+
+<!-- LINHAS -->
+<section id="linhas" class="linhas">
+  <div class="d1x" aria-hidden="true"></div><div class="d2x" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rotulo">Linhas e itinerários</div>
+    <h2 class="h2">11 linhas. Mais de 1.500 partidas por dia.</h2>
+    <p>Escalas de cerca de 1 hora, organizadas por turno — madrugada, manhã, tarde e noite — com saída da garagem até o ponto inicial da linha.</p>
+    <div class="leds" id="leds"></div>
+  </div>
+</section>
+
+<!-- FROTA -->
+<section id="frota" class="frota">
+  <div class="wrap">
+    <div class="rotulo" style="margin-bottom:12px">Nossa frota</div>
+    <div class="cab">
+      <h2 class="h2">Frota exclusiva, com a pintura oficial da empresa.</h2>
+      <p>Letreiros automáticos em todos os veículos. Operação restrita à frota FAOL.</p>
+    </div>
+  </div>
+  <div class="pista"><div class="track" id="track"></div></div>
+</section>
+
+<!-- CARREIRA -->
+<section id="carreira" class="carreira">
+  <div class="wrap">
+    <div class="rotulo" style="margin-bottom:12px">Plano de carreira</div>
+    <h2 class="h2">Uma carreira de verdade, do treinamento ao Sênior.</h2>
+    <div class="grade" id="degraus"></div>
+    <p class="nota">Reconhecimento como numa empresa: certificados, elogio funcional, destaque do mês e Quadro de Honra.</p>
+  </div>
+</section>
+
+<!-- QUADRO DE HONRA + CRIADORES -->
+<section class="honra" aria-label="Quadro de Honra e criadores">
+  <div class="wrap">
+    <div class="bloco azul card">
+      <div class="anel" aria-hidden="true"></div>
+      <div class="rotulo">Quadro de Honra</div>
+      <h3>Motoristas destaque do mês</h3>
+      <p id="honra-txt">Publicado automaticamente a partir da inauguração, com base em escalas cumpridas, assiduidade e disciplina.</p>
+      <ul class="lista" id="honra-lista" hidden></ul>
+    </div>
+    <div class="bloco claro card">
+      <div class="rotulo"><span class="pulse"></span>Criadores FAOL</div>
+      <h3 id="live-titulo">Ao vivo da nossa operação</h3>
+      <p id="live-txt">Quando um criador oficial estiver transmitindo, a live aparece aqui. Agenda de eventos e comboios divulgada pela empresa.</p>
+      <ul class="lista" id="eventos-lista" hidden></ul>
+    </div>
+  </div>
+</section>
+
+<!-- TRABALHE CONOSCO -->
+<section id="trabalhe" class="trabalhe">
+  <div class="wrap">
+    <div class="txt">
+      <div class="rotulo">Trabalhe conosco</div>
+      <h2>16 vagas para motoristas.</h2>
+      <p>Todo o processo é feito pela Central de Atendimento da FAOL no Discord: candidatura, treinamento e liberação da primeira escala.</p>
+      <a href="#" class="cta link-discord" data-convite>Entrar na Central da FAOL</a>
+    </div>
+    <ol class="passos" id="passos"></ol>
+  </div>
+</section>
+
+<!-- DUVIDAS -->
+<section id="duvidas" class="duvidas">
+  <div class="wrap">
+    <h2>Dúvidas frequentes</h2>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+</main>
+
+<!-- RODAPE -->
+<footer class="rodape">
+  <div class="faixas" aria-hidden="true"><i style="height:8px;background:#F5B800"></i><i style="height:4px;background:#FFFFFF"></i><i style="height:8px;background:#3BA7DD"></i></div>
+  <div class="wrap cols">
+    <div class="marca">
+      <img src="imagens/logo_branco.png" alt="FAOL Nova Friburgo">
+      <b>FAOL – Nova Friburgo LTDA</b>
+      <span>Operação no simulador openOMSI · Horário oficial de Brasília</span>
+    </div>
+    <nav aria-label="Rodapé">
+      <div><strong>Empresa</strong><a href="#empresa">A empresa</a><a href="#linhas">Linhas</a><a href="#frota">Frota</a></div>
+      <div><strong>Atendimento</strong><a href="#trabalhe">Trabalhe conosco</a><a href="#duvidas">Dúvidas frequentes</a><a href="#" class="link-discord" data-convite>Central de Atendimento</a></div>
+    </nav>
+  </div>
+  <div class="aviso"><div class="wrap">FAOL – Nova Friburgo LTDA é um projeto de simulação no openOMSI, sem vínculo com empresas reais de transporte. Cenário Nova Friburgo, veículos e openOMSI: créditos aos respectivos autores. OMSI 2 é necessário e deve ser adquirido na Steam.</div></div>
+</footer>
+
+<!-- config (convite do Discord) e dados ao vivo gerados pela Central (status.js, a cada 5 min depois da publicação) -->
+<script src="js/config.js"></script>
+<script src="dados/status.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
