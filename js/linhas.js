@@ -1,4 +1,4 @@
-/* gerado pela Central FAOL em 19/11/2026 23:38 - nao editar a mao */
+/* gerado pela Central FAOL em 20/11/2026 13:27 - nao editar a mao */
 window.FAOL_LINHAS = [
  {
   "linha": "10",
