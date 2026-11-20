@@ -62,10 +62,16 @@
       var on = rodando.indexOf(String(d.linha)) >= 0;
       var rota = d.circular ? esc(d.origem) + " <small>(circular)</small>"
                             : esc(d.origem) + ' <span class="ida">⇄</span> ' + esc(d.destino);
+      if (d.via) { rota += ' <small>via ' + esc(d.via) + '</small>'; }
+      var letreiro = esc(d.circular ? d.origem + " (CIRCULAR)" : d.origem + "  ⇄  " + d.destino).toUpperCase();
       var tempo = d.tempo_min ? (d.tempo_min === d.tempo_max ? d.tempo_min : d.tempo_min + "–" + d.tempo_max) + " min" : "—";
       $("leds").appendChild(el("article", { "class": "cl" + (on ? " on" : "") },
-        '<div class="cl-led">' + esc(d.linha) + (on ? '<span class="cl-ao">● em operação</span>' : "") + "</div>" +
+        '<div class="cl-led"><b>' + esc(d.linha) + '</b><span class="cl-tela"><span class="cl-rolar">' + letreiro +
+        "&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;" + letreiro + "</span></span>" +
+        (on ? '<span class="cl-ao">● em operação</span>' : "") + "</div>" +
+        (d.variante_de ? '<div class="cl-var">variação da linha ' + esc(d.variante_de) + "</div>" : "") +
         '<h3 class="cl-rota">' + rota + "</h3>" +
+        (d.frase ? '<p class="cl-frase">' + esc(d.frase) + "</p>" : "") +
         '<dl class="cl-dados">' +
         "<div><dt>Tempo de viagem</dt><dd>" + tempo + "</dd></div>" +
         "<div><dt>Partidas por dia</dt><dd>" + esc(d.partidas) + "</dd></div>" +
