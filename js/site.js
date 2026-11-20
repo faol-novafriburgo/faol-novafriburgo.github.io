@@ -119,16 +119,14 @@
     ["Posso transmitir ao vivo?", "Sim. Motoristas que transmitem a operação podem se cadastrar como criadores FAOL no Discord; as transmissões em destaque aparecem aqui no site, em Ao vivo na FAOL."],
     ["A FAOL é uma empresa real?", "Não. É um projeto de simulação no openOMSI, sem vínculo com empresas reais de transporte."]
   ];
-  faq.forEach(function (q) {
-    $("faq").appendChild(el("details", {}, "<summary>" + q[0] + "</summary><p>" + q[1] + "</p>"));
-  });
+  /* (20/11) o FAQ agora fica FIXO no index.html (o Google le direto); a lista acima ficou so de referencia */
 
   /* ---------- frota deslizando (duas copias para o laco continuo) */
   var FROTA = window.FAOL_FROTA || [];
   function cartoes(copia) {
     FROTA.forEach(function (b) {
       var f = el("figure", { "class": "bus card" + (copia ? " copia" : "") },
-        '<img src="' + esc(b.foto) + '" alt="Ônibus ' + esc(b.modelo) + ' da frota FAOL" loading="lazy" width="400" height="266">' +
+        '<img src="' + esc(b.foto) + '" alt="Ônibus ' + esc(b.modelo) + ' da frota FAOL em Nova Friburgo (OMSI 2)" loading="lazy" width="400" height="266">' +
         "<figcaption><b>Frota FAOL</b><span>" + esc(b.modelo) + "</span></figcaption>");
       if (copia) { f.setAttribute("aria-hidden", "true"); }
       $("track").appendChild(f);
