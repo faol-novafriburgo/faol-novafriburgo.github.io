@@ -242,3 +242,49 @@
     v.currentTime = 0; v.play();
   });
 })();
+
+/* (20/11) Ao vivo na FAOL: so aparece com transmissao; sem ninguem, "Proximas transmissoes" ou some. Players so
+   carregam quando a secao aparece na tela (nao pesa a abertura). Som desligado ao abrir. */
+(function () {
+  "use strict";
+  var S = window.FAOL_STATUS || {}, T = S.transmissoes || {}, sec = document.getElementById("aovivo");
+  if (!sec || !S.inaugurado) { return; }
+  function esc(t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); }
+  var dest = T.destaques || [], agenda = T.agenda || [];
+  if (!dest.length && !agenda.length) { return; }
+  sec.hidden = false;
+  if (!dest.length) {
+    document.getElementById("av-rotulo").textContent = "Próximas transmissões";
+    document.getElementById("av-titulo").textContent = "📅 Agenda dos criadores FAOL.";
+    var ul = document.getElementById("av-agenda"); ul.hidden = false;
+    ul.innerHTML = agenda.map(function (a) { return "<li><b>" + esc(a.nome) + "</b> — " + esc(a.quando) + "</li>"; }).join("");
+    return;
+  }
+  var grade = document.getElementById("av-grade");
+  grade.innerHTML = dest.map(function (d, i) {
+    var info = [d.linha ? "Linha " + esc(d.linha) : "", d.escala ? esc(d.escala) : ""].filter(Boolean).join(" · ");
+    return '<article class="av-card"><div class="av-player" data-embed="' + esc(d.embed || "") + '">' +
+      '<div class="av-capa">' + (d.embed ? "Carregando a transmissão…" : "Transmissão no canal do criador") + "</div></div>" +
+      '<div class="av-info"><b>' + esc(d.nome) + "</b><span>" + (info || "Em operação na FAOL") + "</span>" +
+      '<a href="' + esc(d.link) + '" target="_blank" rel="noopener">Assistir no canal</a></div></article>';
+  }).join("");
+  if ((T.tambem || []).length) {
+    var p = document.getElementById("av-tambem"); p.hidden = false;
+    p.innerHTML = "Também ao vivo: " + T.tambem.map(function (t) { return '<a href="' + esc(t.link) + '" target="_blank" rel="noopener">' + esc(t.nome) + "</a>"; }).join(" · ");
+  }
+  function carregar() {
+    Array.prototype.forEach.call(grade.querySelectorAll(".av-player"), function (pl) {
+      var u = pl.getAttribute("data-embed");
+      if (u && !pl.querySelector("iframe")) {
+        var f = document.createElement("iframe");
+        f.src = u; f.allow = "autoplay; fullscreen; picture-in-picture"; f.allowFullscreen = true; f.loading = "lazy";
+        f.title = "Transmissão ao vivo";
+        pl.appendChild(f);
+      }
+    });
+  }
+  if ("IntersectionObserver" in window) {
+    var o = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { carregar(); o.disconnect(); } }, { threshold: 0.15 });
+    o.observe(sec);
+  } else { carregar(); }
+})();
