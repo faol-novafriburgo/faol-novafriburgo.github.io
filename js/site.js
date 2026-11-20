@@ -17,6 +17,10 @@
   function $(id) { return document.getElementById(id); }
 
   /* ---------- convite do Discord (botoes "Quero ser motorista" / "Entrar na Central") */
+  // (20/11) "Nossa história" (Memorial de Incorporação, PDF): só aparece depois que a Presidência publica
+  if (CFG.memorial) {
+    document.querySelectorAll("[data-memorial]").forEach(function (a) { a.href = CFG.memorial; a.hidden = false; });
+  }
   var links = document.querySelectorAll("[data-convite]");
   for (var i = 0; i < links.length; i++) {
     if (CFG.convite_discord) {
@@ -298,8 +302,9 @@
     c = String(c || "").trim().toUpperCase();
     if (!c) { return; }
     var d = (window.FAOL_DOCUMENTOS || {})[c];
-    res.className = "vf-res " + (d ? "ok" : "nao");
-    res.textContent = d ? ("✅ Documento válido — " + d.tipo + " · " + d.apelido + " · emitido em " + d.data)
+    res.className = "vf-res " + (d && !d.anulado ? "ok" : "nao");
+    res.textContent = d && d.anulado ? ("⚠️ Documento anulado em " + d.anulado + " — " + d.tipo + ". Ele não tem mais validade.")
+                    : d ? ("✅ Documento válido — " + d.tipo + " · " + d.apelido + " · emitido em " + d.data)
                         : "❌ Código não encontrado. Confira as letras e os números.";
   }
   form.addEventListener("submit", function (e) { e.preventDefault(); conferir(inp.value); });

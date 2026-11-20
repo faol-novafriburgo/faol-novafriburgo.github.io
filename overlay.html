@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Sobreposição oficial FAOL</title>
+<!-- SOBREPOSIÇÃO OFICIAL DA FAOL (20/11). Para o OBS: Fonte de Navegador, 1920x1080, sem CSS personalizado.
+     Opções pela URL: ?canto=inferior-direito (padrão) | inferior-esquerdo | superior-direito | superior-esquerdo
+                      &escala=1 (0.6 a 1.6)
+     O conteúdo vem de dados/patrocinio.js (gerado pela Central FAOL; só a marca e a logo, nunca valores ou contatos). -->
+<style>
+  html, body { margin: 0; padding: 0; background: transparent !important; overflow: hidden; }
+  body { width: 100vw; height: 100vh; font-family: "Segoe UI", Arial, sans-serif; }
+  #selo {
+    position: absolute; display: flex; align-items: center; gap: 14px;
+    padding: 10px 18px 10px 12px; border-radius: 14px;
+    background: rgba(15, 45, 110, .82); border-bottom: 4px solid #F5B800;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .35); color: #fff;
+    transform-origin: right bottom; transition: opacity .6s ease;
+  }
+  #selo.inferior-direito  { right: 32px; bottom: 32px; transform-origin: right bottom; }
+  #selo.inferior-esquerdo { left: 32px;  bottom: 32px; transform-origin: left bottom; }
+  #selo.superior-direito  { right: 32px; top: 32px;    transform-origin: right top; }
+  #selo.superior-esquerdo { left: 32px;  top: 32px;    transform-origin: left top; }
+  #faol { height: 56px; background: #fff; border-radius: 9px; padding: 4px 8px; }
+  #textos { display: flex; flex-direction: column; line-height: 1.15; }
+  #rotulo { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #F5B800; font-weight: 600; }
+  #marca  { font-size: 22px; font-weight: 700; white-space: nowrap; }
+  #logo-anunciante { height: 56px; max-width: 220px; object-fit: contain; display: none;
+                     background: #fff; border-radius: 9px; padding: 4px 8px; }
+  .apagado { opacity: 0; }
+</style>
+</head>
+<body>
+<div id="selo" class="inferior-direito">
+  <img id="faol" src="imagens/logo_cor.png" alt="FAOL">
+  <div id="textos"><span id="rotulo">Operação FAOL</span><span id="marca">Nova Friburgo</span></div>
+  <img id="logo-anunciante" alt="">
+</div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var op = window.FAOL_OPCOES || {};                       // prévias: opções sem precisar de "?" na URL
+  var canto = (op.canto || q.get("canto") || "inferior-direito").toLowerCase();
+  var cantos = ["inferior-direito", "inferior-esquerdo", "superior-direito", "superior-esquerdo"];
+  if (cantos.indexOf(canto) < 0) canto = "inferior-direito";
+  var escala = parseFloat(op.escala || q.get("escala") || "1");
+  if (!(escala >= 0.6 && escala <= 1.6)) escala = 1;
+  var selo = document.getElementById("selo");
+  selo.className = canto;
+  selo.style.transform = "scale(" + escala + ")";
+  var rotulo = document.getElementById("rotulo"), marca = document.getElementById("marca"),
+      logo = document.getElementById("logo-anunciante");
+  var lista = [], i = 0, RODIZIO = 20000;
+
+  function mostrar() {
+    selo.classList.add("apagado");
+    setTimeout(function () {
+      if (!lista.length) {                                   // sem anunciante: só o selo FAOL
+        rotulo.textContent = "Operação FAOL"; marca.textContent = "Nova Friburgo";
+        logo.style.display = "none";
+      } else {
+        var a = lista[i % lista.length]; i++;
+        rotulo.textContent = "Patrocínio"; marca.textContent = a.marca || "";
+        if (a.logo) { logo.src = a.logo; logo.style.display = "block"; } else { logo.style.display = "none"; }
+      }
+      selo.classList.remove("apagado");
+    }, 600);
+  }
+  function carregar() {                                      // relê os dados a cada 5 min (contrato que acaba sai sozinho)
+    var s = document.createElement("script");
+    s.src = "dados/patrocinio.js?t=" + Date.now();
+    s.onload = function () {
+      var d = window.FAOL_PATROCINIO || {};
+      lista = (d.anunciantes || []).filter(function (a) { return a && a.marca; });
+      if (d.rodizio_s) RODIZIO = Math.max(8, d.rodizio_s) * 1000;
+      s.remove();
+    };
+    s.onerror = function () { s.remove(); };
+    document.head.appendChild(s);
+  }
+  if (window.FAOL_PATROCINIO) {
+    lista = (window.FAOL_PATROCINIO.anunciantes || []);
+  } else { carregar(); }
+  mostrar();
+  setInterval(mostrar, RODIZIO);
+  if (!window.FAOL_OPCOES) setInterval(carregar, 300000);
+})();
+</script>
+</body>
+</html>
