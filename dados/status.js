@@ -1,4 +1,4 @@
-/* gerado pela Central FAOL em 19/11/2026 23:51 - nao editar a mao */
+/* gerado pela Central FAOL em 19/11/2026 23:59 - nao editar a mao */
 window.FAOL_STATUS = {
  "inaugurado": true,
  "servidor": "aberto",
@@ -8,6 +8,11 @@ window.FAOL_STATUS = {
  "quadro_honra": [],
  "quadro_honra_mes": "11/2026",
  "ao_vivo": null,
+ "transmissoes": {
+  "destaques": [],
+  "tambem": [],
+  "agenda": []
+ },
  "eventos": [],
- "atualizado": "19/11 23:51"
+ "atualizado": "19/11 23:59"
 };
