@@ -48,12 +48,37 @@
       "<h3>" + p[1] + "</h3><p>" + p[2] + "</p>"));
   });
 
+  /* (19/11) total real de partidas por dia (soma dos horarios do mapa) */
+  var TOTAL_PARTIDAS = (window.FAOL_LINHAS || []).reduce(function (t, d) { return t + (d.partidas || 0); }, 0) || 1182;
+  var tl = document.getElementById("linhas-titulo");
+  if (tl) { tl.textContent = "11 linhas. Mais de " + (Math.floor(TOTAL_PARTIDAS / 100) * 100).toLocaleString("pt-BR") + " partidas por dia."; }
   var LINHAS = ["10", "31", "31A", "31B", "32", "32A", "42", "42A", "74", "74A", "100"];
   var rodando = (S.linhas_rodando || []).map(String);
-  LINHAS.forEach(function (l) {
-    var on = rodando.indexOf(l) >= 0;
-    $("leds").appendChild(el("div", { "class": "led card" + (on ? " on" : ""), "title": on ? "Em operação agora" : "" }, esc(l)));
-  });
+  /* (19/11, item e) cartoes das linhas: dados REAIS dos horarios do mapa (js/linhas.js, gerado pela Central) */
+  var DL = window.FAOL_LINHAS || [];
+  if (DL.length) {
+    $("leds").className = "cartoes-linhas";
+    DL.forEach(function (d) {
+      var on = rodando.indexOf(String(d.linha)) >= 0;
+      var rota = d.circular ? esc(d.origem) + " <small>(circular)</small>"
+                            : esc(d.origem) + ' <span class="ida">⇄</span> ' + esc(d.destino);
+      var tempo = d.tempo_min ? (d.tempo_min === d.tempo_max ? d.tempo_min : d.tempo_min + "–" + d.tempo_max) + " min" : "—";
+      $("leds").appendChild(el("article", { "class": "cl" + (on ? " on" : "") },
+        '<div class="cl-led">' + esc(d.linha) + (on ? '<span class="cl-ao">● em operação</span>' : "") + "</div>" +
+        '<h3 class="cl-rota">' + rota + "</h3>" +
+        '<dl class="cl-dados">' +
+        "<div><dt>Tempo de viagem</dt><dd>" + tempo + "</dd></div>" +
+        "<div><dt>Partidas por dia</dt><dd>" + esc(d.partidas) + "</dd></div>" +
+        "<div><dt>Primeira / última</dt><dd>" + esc(d.primeira) + " · " + esc(d.ultima) + "</dd></div>" +
+        "<div><dt>Intervalo no pico</dt><dd>" + (d.intervalo_pico ? "~" + d.intervalo_pico + " min" : "—") + "</dd></div>" +
+        "</dl>"));
+    });
+  } else {
+    LINHAS.forEach(function (l) {
+      var on = rodando.indexOf(l) >= 0;
+      $("leds").appendChild(el("div", { "class": "led card" + (on ? " on" : ""), "title": on ? "Em operação agora" : "" }, esc(l)));
+    });
+  }
 
   var degraus = [
     ["1", "Em Treinamento", "Viagem acompanhada por um instrutor da empresa antes da liberação.", "#3BA7DD"],
@@ -113,13 +138,13 @@
                : { v: null, txt: sitTxt, r: "Servidor", cor: "#0F2D6E" },
       nLin > 0 ? { v: nLin, suf: "", r: "Linhas rodando agora", cor: "#3BA7DD" }
                : { v: 11, suf: "", r: "Linhas em operação", cor: "#3BA7DD" },
-      { v: 1500, suf: "+", r: "Partidas por dia", cor: "#F5B800" },
+      { v: TOTAL_PARTIDAS, suf: "", r: "Partidas por dia", cor: "#F5B800" },
       { v: null, txt: "24 h", r: "Operação com horário real", cor: "#0F2D6E" }
     ];
   } else {
     stats = [
       { v: 11, suf: "", r: "Linhas em operação", cor: "#0F2D6E" },
-      { v: 1500, suf: "+", r: "Partidas por dia", cor: "#3BA7DD" },
+      { v: TOTAL_PARTIDAS, suf: "", r: "Partidas por dia", cor: "#3BA7DD" },
       { v: 16, suf: "", r: "Vagas para motoristas", cor: "#F5B800" },
       { v: null, txt: "24 h", r: "Operação com horário real", cor: "#0F2D6E" }
     ];

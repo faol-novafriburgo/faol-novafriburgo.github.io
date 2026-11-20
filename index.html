@@ -48,7 +48,7 @@
   </div>
   <div class="wrap heroi">
     <div class="logo up"><img src="imagens/logo_branco.png" alt="FAOL Nova Friburgo"></div>
-    <div class="selo up" id="selo"><span class="pulse"></span><span id="selo-txt">Inauguração em breve</span></div>
+    <div class="selo up" id="selo"><span class="pulse"></span><span id="selo-txt">Em operação</span></div>
     <h1 class="h1 up d1">O transporte coletivo de passageiros de Nova Friburgo, <span>com padrão de empresa.</span></h1>
     <p class="up d2">11 linhas urbanas no simulador openOMSI, com escalas, horários reais e uma equipe organizada como uma viação de verdade.</p>
     <div class="acoes up d3">
@@ -109,7 +109,7 @@
   <div class="d1x" aria-hidden="true"></div><div class="d2x" aria-hidden="true"></div>
   <div class="wrap">
     <div class="rotulo">Linhas e itinerários</div>
-    <h2 class="h2">11 linhas. Mais de 1.500 partidas por dia.</h2>
+    <h2 class="h2" id="linhas-titulo">11 linhas. Mais de 1.100 partidas por dia.</h2>
     <p>Escalas de cerca de 1 hora, organizadas por turno — madrugada, manhã, tarde e noite — com saída da garagem até o ponto inicial da linha.</p>
     <div class="leds" id="leds"></div>
   </div>
@@ -144,7 +144,7 @@
       <div class="anel" aria-hidden="true"></div>
       <div class="rotulo">Quadro de Honra</div>
       <h3>Motoristas destaque do mês</h3>
-      <p id="honra-txt">Publicado automaticamente a partir da inauguração, com base em escalas cumpridas, assiduidade e disciplina.</p>
+      <p id="honra-txt">Publicado automaticamente pela Central, com base em escalas cumpridas, assiduidade e disciplina.</p>
       <ul class="lista" id="honra-lista" hidden></ul>
     </div>
     <div class="bloco claro card">
@@ -197,6 +197,7 @@
 
 <!-- config (convite do Discord) e dados ao vivo gerados pela Central (status.js, a cada 5 min depois da publicação) -->
 <script src="js/config.js"></script>
+<script src="js/linhas.js"></script>
 <script src="dados/status.js"></script>
 <script src="js/site.js"></script>
 </body>

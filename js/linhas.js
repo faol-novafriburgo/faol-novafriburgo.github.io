@@ -1,0 +1,135 @@
+/* gerado pela Central FAOL em 19/11/2026 22:16 - nao editar a mao */
+window.FAOL_LINHAS = [
+ {
+  "linha": "10",
+  "origem": "Olaria",
+  "destino": "Estação Livre",
+  "circular": false,
+  "tempo_min": 9,
+  "tempo_max": 13,
+  "partidas": 230,
+  "primeira": "00:01",
+  "ultima": "23:49",
+  "intervalo_pico": 16
+ },
+ {
+  "linha": "31",
+  "origem": "Rua Duque de Caxias",
+  "destino": "Jacina",
+  "circular": false,
+  "tempo_min": 17,
+  "tempo_max": 26,
+  "partidas": 119,
+  "primeira": "00:21",
+  "ultima": "23:30",
+  "intervalo_pico": 20
+ },
+ {
+  "linha": "31A",
+  "origem": "Orfanato",
+  "destino": "Rua Duque de Caxias",
+  "circular": false,
+  "tempo_min": 17,
+  "tempo_max": 39,
+  "partidas": 99,
+  "primeira": "00:17",
+  "ultima": "23:39",
+  "intervalo_pico": 21
+ },
+ {
+  "linha": "31B",
+  "origem": "Rua Duque de Caxias",
+  "destino": "Orfanato",
+  "circular": false,
+  "tempo_min": 17,
+  "tempo_max": 39,
+  "partidas": 100,
+  "primeira": "00:09",
+  "ultima": "23:27",
+  "intervalo_pico": 34
+ },
+ {
+  "linha": "32",
+  "origem": "Estação Livre",
+  "destino": "Nova Suíça",
+  "circular": false,
+  "tempo_min": 21,
+  "tempo_max": 33,
+  "partidas": 105,
+  "primeira": "00:15",
+  "ultima": "23:53",
+  "intervalo_pico": 27
+ },
+ {
+  "linha": "32A",
+  "origem": "Vale do Paraíso",
+  "destino": "Estação Livre",
+  "circular": false,
+  "tempo_min": 21,
+  "tempo_max": 33,
+  "partidas": 104,
+  "primeira": "00:03",
+  "ultima": "23:25",
+  "intervalo_pico": 35
+ },
+ {
+  "linha": "42",
+  "origem": "Alto de Olaria",
+  "destino": "Estação Livre",
+  "circular": false,
+  "tempo_min": 21,
+  "tempo_max": 33,
+  "partidas": 104,
+  "primeira": "00:30",
+  "ultima": "23:47",
+  "intervalo_pico": 28
+ },
+ {
+  "linha": "42A",
+  "origem": "Estação Livre",
+  "destino": "Alto de Olaria",
+  "circular": false,
+  "tempo_min": 26,
+  "tempo_max": 39,
+  "partidas": 88,
+  "primeira": "00:14",
+  "ultima": "23:28",
+  "intervalo_pico": 42
+ },
+ {
+  "linha": "74",
+  "origem": "Alto de Olaria",
+  "destino": "Nova Suíça",
+  "circular": false,
+  "tempo_min": 34,
+  "tempo_max": 52,
+  "partidas": 64,
+  "primeira": "00:25",
+  "ultima": "23:18",
+  "intervalo_pico": 56
+ },
+ {
+  "linha": "74A",
+  "origem": "Alto de Olaria",
+  "destino": "Nova Suíça",
+  "circular": false,
+  "tempo_min": 34,
+  "tempo_max": 52,
+  "partidas": 64,
+  "primeira": "00:11",
+  "ultima": "22:55",
+  "intervalo_pico": 56
+ },
+ {
+  "linha": "100",
+  "origem": "Barroso",
+  "destino": "Barroso",
+  "circular": true,
+  "tempo_min": 21,
+  "tempo_max": 33,
+  "partidas": 105,
+  "primeira": "00:02",
+  "ultima": "23:46",
+  "intervalo_pico": 16
+ }
+];
