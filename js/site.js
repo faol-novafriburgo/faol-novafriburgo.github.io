@@ -105,9 +105,14 @@
   var inaugurado = S.inaugurado === true;
   var stats;
   if (inaugurado) {
+    /* (19/11) com 0 motoristas em escala nao destaca o zero: mostra so a situacao do servidor */
+    var nEsc = S.motoristas_em_escala || 0, nLin = (S.linhas_rodando || []).length;
+    var sitTxt = { aberto: "Aberto", fechado: "Fechado", manutencao: "Manutenção" }[S.servidor] || "Aberto";
     stats = [
-      { v: S.motoristas_em_escala || 0, suf: " / " + (S.vagas || 16), r: "Motoristas em escala agora", cor: "#0F2D6E" },
-      { v: (S.linhas_rodando || []).length, suf: "", r: "Linhas rodando agora", cor: "#3BA7DD" },
+      nEsc > 0 ? { v: nEsc, suf: " / " + (S.vagas || 16), r: "Motoristas em escala agora", cor: "#0F2D6E" }
+               : { v: null, txt: sitTxt, r: "Servidor", cor: "#0F2D6E" },
+      nLin > 0 ? { v: nLin, suf: "", r: "Linhas rodando agora", cor: "#3BA7DD" }
+               : { v: 11, suf: "", r: "Linhas em operação", cor: "#3BA7DD" },
       { v: 1500, suf: "+", r: "Partidas por dia", cor: "#F5B800" },
       { v: null, txt: "24 h", r: "Operação com horário real", cor: "#0F2D6E" }
     ];
@@ -172,4 +177,37 @@
     S.eventos.slice(0, 4).forEach(function (e) { ev.appendChild(el("li", {}, "🎉 " + esc(e.titulo) + " · " + esc(e.quando))); });
     ev.hidden = false;
   }
+})();
+
+/* (19/11) Vinheta: carrega so quando a secao aparece; comeca sem som; botoes de som e de tocar de novo. */
+(function () {
+  "use strict";
+  var v = document.getElementById("vinheta-video");
+  if (!v) { return; }
+  var reduzir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var som = document.getElementById("v-som"), tocar = document.getElementById("v-tocar");
+  function carregar() {
+    if (!v.src) { v.src = v.getAttribute("data-src"); }
+    if (!reduzir) { var p = v.play(); if (p && p.catch) { p.catch(function () {}); } }
+  }
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (ent) {
+      ent.forEach(function (e) {
+        if (e.isIntersecting) { carregar(); }
+        else if (v.src && !v.paused) { v.pause(); }
+      });
+    }, { threshold: 0.35 });
+    obs.observe(v);
+  } else { carregar(); }
+  som.addEventListener("click", function () {
+    if (!v.src) { carregar(); }
+    v.muted = !v.muted;
+    som.textContent = v.muted ? "🔇 Som" : "🔊 Som";
+    som.setAttribute("aria-label", v.muted ? "Ligar o som" : "Desligar o som");
+    if (v.paused) { v.play(); }
+  });
+  tocar.addEventListener("click", function () {
+    if (!v.src) { carregar(); }
+    v.currentTime = 0; v.play();
+  });
 })();
