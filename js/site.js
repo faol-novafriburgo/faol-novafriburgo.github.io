@@ -288,3 +288,32 @@
     o.observe(sec);
   } else { carregar(); }
 })();
+
+/* (20/11) Verificar documento: o codigo e conferido na lista publica (so codigo, tipo, apelido e data). */
+(function () {
+  "use strict";
+  var form = document.getElementById("vf-form"), inp = document.getElementById("vf-codigo"), res = document.getElementById("vf-res");
+  if (!form) { return; }
+  function conferir(c) {
+    c = String(c || "").trim().toUpperCase();
+    if (!c) { return; }
+    var d = (window.FAOL_DOCUMENTOS || {})[c];
+    res.className = "vf-res " + (d ? "ok" : "nao");
+    res.textContent = d ? ("✅ Documento válido — " + d.tipo + " · " + d.apelido + " · emitido em " + d.data)
+                        : "❌ Código não encontrado. Confira as letras e os números.";
+  }
+  form.addEventListener("submit", function (e) { e.preventDefault(); conferir(inp.value); });
+  var m = /[?&]c=([A-Za-z0-9-]+)/.exec(location.hash + location.search);
+  if (m) { inp.value = m[1]; conferir(m[1]); var s = document.getElementById("verificar"); if (s) { s.scrollIntoView(); } }
+})();
+
+/* (20/11) Vitrine: sugestoes de passageiros implantadas (so com autorizacao do passageiro) */
+(function () {
+  "use strict";
+  var S = window.FAOL_STATUS || {}, lst = S.sugestoes_implantadas || [], box = document.getElementById("pas-vitrine");
+  if (!box || !lst.length) { return; }
+  function esc(t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); }
+  box.hidden = false;
+  document.getElementById("pas-lista").innerHTML = lst.slice(-6).reverse().map(function (x) {
+    return "<li><b>" + esc(x.titulo) + "</b> — sugestão de " + esc(x.nome) + "</li>"; }).join("");
+})();

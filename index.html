@@ -169,6 +169,46 @@
   </div>
 </section>
 
+<!-- ESPACO DO PASSAGEIRO (20/11) -->
+<section id="passageiro" class="passageiro" aria-label="Espaço do Passageiro">
+  <div class="wrap">
+    <div class="rotulo">🚏 Espaço do Passageiro</div>
+    <h2 class="h2">Você é nosso passageiro. Fale com a FAOL.</h2>
+    <p>Assistiu a uma transmissão ou chegou agora? Aqui é o seu lugar: acompanhe a operação e mande a sua sugestão, elogio, reclamação ou dúvida. Toda mensagem recebe protocolo e resposta da Ouvidoria.</p>
+    <div class="pas-grade">
+      <a class="pas-card" href="#aovivo"><b>📡 Assista à FAOL ao vivo</b><span>As transmissões da operação aparecem no topo do site.</span></a>
+      <a class="pas-card" href="#linhas"><b>🕒 Linhas e horários</b><span>As 11 linhas, com primeira e última saída.</span></a>
+      <a class="pas-card link-fale" href="https://discord.com/channels/1572569307102187540/1573178376355708942" target="_blank" rel="noopener"><b>🎫 Fale com a FAOL</b><span>Sugestão · Elogio · Reclamação · Dúvida (no Discord, sem precisar ser motorista).</span></a>
+    </div>
+    <div class="pas-vitrine" id="pas-vitrine" hidden>
+      <h3>💡 Sugestões de passageiros já implantadas</h3>
+      <ul id="pas-lista"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ANUNCIE NA FAOL (20/11): midia kit -->
+<section id="anuncie" class="anuncie" aria-label="Anuncie na FAOL">
+  <div class="wrap">
+    <div class="rotulo">📢 Anuncie na FAOL</div>
+    <h2 class="h2">Sua marca dentro da cidade virtual.</h2>
+    <p>Publicidade na FAOL é como numa empresa de ônibus de verdade, e cada anúncio ajuda a manter o programa de transmissões dos nossos criadores.</p>
+    <div class="tabela-wrap"><table class="midia">
+      <thead><tr><th>Espaço</th><th>Formato da arte</th><th>Preço de lançamento</th></tr></thead>
+      <tbody>
+        <tr><td>Banner no site <small>(etiqueta "Publicidade")</small></td><td>1200×200 + 600×300 px, até 200 KB</td><td>R$ 50/mês</td></tr>
+        <tr><td>Destaque no Discord <small>(fixado 7 dias)</small></td><td>1200×675 + até 300 caracteres</td><td>R$ 25</td></tr>
+        <tr><td>Citação em transmissão</td><td>logo PNG transparente</td><td>R$ 25 por transmissão</td></tr>
+        <tr><td>Pacote Linha completa</td><td>banner + 2 busdoors + 1 destaque/mês</td><td>R$ 150/mês</td></tr>
+        <tr><td><b>Patrocinador oficial</b> <small>(cota única)</small></td><td>todos os espaços + selo + exclusividade no segmento</td><td>R$ 300/mês</td></tr>
+        <tr class="breve"><td>Busdoor virtual</td><td>1024×512 PNG, na pintura do ônibus</td><td>EM BREVE</td></tr>
+        <tr class="breve"><td>Painel de parada</td><td>1024×512 PNG, no abrigo de ônibus</td><td>EM BREVE</td></tr>
+      </tbody></table></div>
+    <p class="nota">Mínimo de 1 mês (exceto destaque e citação) · 10% de desconto em 3 meses e 15% em 6 · contrato com aceite eletrônico · não aceitamos apostas, conteúdo adulto, pirataria, política, cripto, armas, cigarro, bebida ou discurso de ódio.</p>
+    <a href="https://discord.com/channels/1572569307102187540/1573178379551641611" class="btnY" target="_blank" rel="noopener">Quero anunciar</a>
+  </div>
+</section>
+
 <!-- TRABALHE CONOSCO -->
 <section id="trabalhe" class="trabalhe">
   <div class="wrap">
@@ -180,6 +220,20 @@
       <a href="#" class="cta link-discord" data-convite>Entrar na Central da FAOL</a>
     </div>
     <ol class="passos" id="passos"></ol>
+  </div>
+</section>
+
+<!-- VERIFICAR DOCUMENTO (20/11): certificados, extratos e cartas da FAOL -->
+<section id="verificar" class="verificar" aria-label="Verificar documento">
+  <div class="wrap">
+    <div class="rotulo">Documentos oficiais</div>
+    <h2 class="h2">Verificar documento</h2>
+    <p>Digite o código que aparece no certificado, no extrato da ficha ou na carta de referência (ou leia o QR code).</p>
+    <form id="vf-form" class="vf-form" autocomplete="off">
+      <input id="vf-codigo" type="text" placeholder="Ex.: CERT-2026-0001-AB12" aria-label="Código do documento" maxlength="40">
+      <button type="submit" class="btnY">Verificar</button>
+    </form>
+    <p id="vf-res" class="vf-res" role="status"></p>
   </div>
 </section>
 
@@ -212,6 +266,7 @@
 <!-- config (convite do Discord) e dados ao vivo gerados pela Central (status.js, a cada 5 min depois da publicação) -->
 <script src="js/config.js"></script>
 <script src="js/linhas.js"></script>
+<script src="dados/documentos.js"></script>
 <script src="dados/status.js"></script>
 <script src="js/site.js"></script>
 </body>
