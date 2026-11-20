@@ -1,8 +1,9 @@
-/* gerado pela Central FAOL em 19/11/2026 19:53 - nao editar a mao */
+/* gerado pela Central FAOL em 20/11/2026 13:27 - nao editar a mao */
 window.FAOL_CONFIG = {
- "convite_discord": "https://discord.gg/eQgkncDpu8"
+ "convite_discord": "https://discord.gg/eQgkncDpu8",
+ "memorial": "documentos/memorial_de_incorporacao.pdf"
 };
-/* gerado pela Central FAOL em 19/11/2026 19:53 - nao editar a mao */
+/* gerado pela Central FAOL em 20/11/2026 13:27 - nao editar a mao */
 window.FAOL_FROTA = [
  {
   "foto": "imagens/frota_vip3.jpg",
