@@ -98,7 +98,7 @@
   });
 
   var passos = [
-    ["1", "Tenha o OMSI 2 original", "Adquirido na Steam, junto com o launcher oficial do openOMSI."],
+    ["1", "Tenha o OMSI 2 original", "Adquirido na Steam. O openOMSI, que usamos para operar, é gratuito."],
     ["2", "Entre na Central da FAOL", "Nosso atendimento no Discord recebe você na recepção."],
     ["3", "Envie sua candidatura", "Formulário rápido, analisado pelo setor de Recursos Humanos."],
     ["4", "Faça o treinamento", "Uma viagem acompanhada para conhecer a operação."],
@@ -112,7 +112,7 @@
     ["Preciso pagar alguma coisa?", "Não. A participação na FAOL é gratuita. É necessário apenas ter o OMSI 2 original na Steam."],
     ["Preciso baixar o mapa?", "Não. Na primeira entrada o próprio servidor envia a cidade e a frota. Pode levar alguns minutos; nas próximas é imediato."],
     ["Como recebo o endereço do servidor?", "Pela Central da FAOL, no momento em que você assume sua escala."],
-    ["Posso transmitir ao vivo?", "Sim. Motoristas que fazem live podem solicitar acesso ao programa Criadores FAOL."],
+    ["Posso transmitir ao vivo?", "Sim. Motoristas que transmitem a operação podem se cadastrar como criadores FAOL no Discord; as transmissões em destaque aparecem aqui no site, em Ao vivo na FAOL."],
     ["A FAOL é uma empresa real?", "Não. É um projeto de simulação no openOMSI, sem vínculo com empresas reais de transporte."]
   ];
   faq.forEach(function (q) {
