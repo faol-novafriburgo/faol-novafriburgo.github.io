@@ -395,3 +395,4 @@ main>section>.wrap{width:100%}
 .midia tr.breve td{opacity:.6;font-style:italic}
 .anuncie .nota{color:#C9D6EE;font-size:14px;margin-bottom:18px}
 .anuncie .btnY{display:inline-block;padding:14px 24px}
+@media (max-width:620px){.midia{min-width:0}.midia th:nth-child(2),.midia td:nth-child(2){display:none}}
