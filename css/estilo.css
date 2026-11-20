@@ -274,3 +274,23 @@ main>section>.wrap{width:100%}
 @media (min-width:761px){.topo .foto{-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.45) 8%,#000 16%);
   mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.45) 8%,#000 16%)}}   /* degrade so na borda, antes do onibus */
 .topo>.wrap{width:100%;margin-left:0;margin-right:0}   /* topo em coluna: texto e menu continuam encostados a esquerda */
+
+/* Ajuste do Presidente (19/11, 6a versao — NAO DESFAZER): telas ESTREITAS ou EM PE (celular e monitor vertical):
+   foto do onibus INTEIRA em cima, texto e botoes embaixo, sem sobrepor. */
+@media (orientation:portrait), (max-aspect-ratio:1/1){
+  html{scroll-snap-type:none}
+  .topo{height:auto;min-height:100svh;display:flex;flex-direction:column}
+  .barra{position:relative;order:-1;padding-top:14px;padding-bottom:12px}
+  .topo .foto{position:relative;inset:auto;display:block;width:100%;height:auto;max-width:none;aspect-ratio:2180/1180;
+    object-fit:contain;object-position:50% 50%;transform-origin:50% 50%;
+    -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
+  .topo .heroi{flex:1;justify-content:flex-start;padding-top:16px;padding-bottom:72px}
+  .heroi .h1,.heroi p,.heroi .selo{text-shadow:none}
+}
+@media (orientation:portrait) and (min-width:761px){
+  .heroi .logo img{width:min(380px,60vw)}
+  .heroi .h1{font-size:clamp(40px,5vw,64px);max-width:none}
+  .heroi p{font-size:22px;max-width:none}
+  .acoes .btnY,.acoes .btnO{font-size:20px;padding:18px 30px}
+}
+@media (orientation:portrait) and (min-width:761px){.topo .heroi{justify-content:center}}   /* monitor em pe: texto no meio */
