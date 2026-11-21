@@ -1,4 +1,4 @@
-/* (21/11) Verificacao de documentos da FAOL: diz a VERDADE ATUAL do vinculo.
+/* (21/11) Verificacao de documentos da AVS: diz a VERDADE ATUAL do vinculo.
    A lista publica (dados/documentos.js) guarda so: codigo, tipo, apelido, matricula, categoria/cargo, situacao atual e
    os periodos do vinculo. Nenhum dado pessoal. Funcao pura (testada sem o site): FAOL_VERIFICAR(codigo, lista, conferido). */
 (function (w) {
@@ -12,11 +12,11 @@
   function termos(tipo) {
     if (tipo !== "Carteira de Habilitação") {          /* cracha, ficha e demais documentos de vinculo */
       return { nome: "Vínculo", vig: "Vínculo VIGENTE", susp: "Vínculo SUSPENSO", sem: "Vínculo <b>sem vigência</b>",
-               cat: "Cargo atual", ult: "Último cargo", desde: "No quadro da FAOL desde", per: "Fez parte do quadro da FAOL" };
+               cat: "Cargo atual", ult: "Último cargo", desde: "No quadro da AVS desde", per: "Fez parte do quadro da AVS" };
     }
     return { nome: "Habilitação", vig: "Habilitação VIGENTE", susp: "Habilitação <b>SUSPENSA</b>",
              sem: "Habilitação <b>sem vigência</b>", cat: "Categoria atual", ult: "Última categoria",
-             desde: "Habilitado desde", per: "Foi habilitado na FAOL" };
+             desde: "Habilitado desde", per: "Foi habilitado na AVS" };
   }
 
   function periodos(ps) {
@@ -29,7 +29,7 @@
     var t = termos(d.tipo), out = [], st = d.situacao;
     var conf = conferido ? "Situação conferida em " + conferido + "." : "";
     if (st === "Desligado") {
-      out.push("⚠️ Documento autêntico, mas o colaborador <b>NÃO faz mais parte do quadro</b> da FAOL.");
+      out.push("⚠️ Documento autêntico, mas o colaborador <b>NÃO faz mais parte do quadro</b> da AVS.");
       var ps = periodos(d.periodos);
       if (ps.length) { out.push(t.per + " " + ps.join("; ") + "."); }
       if (d.categoria && d.categoria !== "—") { out.push(t.ult + ": " + d.categoria + "."); }
@@ -63,7 +63,8 @@
     if (d.anulado) {
       return { classe: "nao", linhas: ["⚠️ Documento anulado em " + d.anulado + " — " + d.tipo + ". Ele não tem mais validade."] };
     }
-    var cab = d.tipo + " · " + d.apelido + (d.matricula ? " · " + d.matricula : "") + " · emitido em " + d.data;
+    var cab = d.tipo + " · " + d.apelido + (d.matricula ? " · " + d.matricula : "") + " · emitido em " + d.data +
+              (d0.nome_anterior ? " pela operadora virtual de Nova Friburgo, atual " + (w.FAOL_EMPRESA_NOME || "AVS · Auto Viação Serrana") : "");
     var linhas = [], ligado = VINCULO.indexOf(d.tipo) >= 0 && d.situacao;
     if (d.substituido) {
       linhas.push("Esta via foi substituída em " + d.substituido + ".");

@@ -1,4 +1,4 @@
-/* FAOL – site institucional. Preenche as secoes, anima os numeros e le os dados ao vivo (dados/status.js, gerado
+/* AVS – site institucional. Preenche as secoes, anima os numeros e le os dados ao vivo (dados/status.js, gerado
    pela Central a cada 5 min depois da publicacao). Nada de endereco do servidor, dados pessoais ou financeiro. */
 (function () {
   "use strict";
@@ -43,7 +43,7 @@
     [P.nuvem, "Meteorologia em tempo real", "Clima obtido dos boletins oficiais do Aeroporto Santos Dumont."],
     [P.cal, "Calendário operacional", "Feriados nacionais, do estado do Rio e do município."],
     [P.radio, "Central de Operações", "Comunicados de pico, clima e trânsito, além de rádio por linha."],
-    [P.cracha, "Matrícula e habilitação", "Ficha funcional, carteira de habilitação FAOL e escala individual."]
+    [P.cracha, "Matrícula e habilitação", "Ficha funcional, carteira de habilitação AVS e escala individual."]
   ];
   pilares.forEach(function (p) {
     $("pilares").appendChild(el("div", { "class": "pilar card" },
@@ -103,7 +103,7 @@
 
   var passos = [
     ["1", "Tenha o OMSI 2 original", "Adquirido na Steam. O openOMSI, que usamos para operar, é gratuito."],
-    ["2", "Entre na Central da FAOL", "Nosso atendimento no Discord recebe você na recepção."],
+    ["2", "Entre na Central da AVS", "Nosso atendimento no Discord recebe você na recepção."],
     ["3", "Envie sua candidatura", "Formulário rápido, analisado pelo setor de Recursos Humanos."],
     ["4", "Faça o treinamento", "Uma viagem acompanhada para conhecer a operação."],
     ["5", "Assuma sua primeira escala", "Escolha a linha e o horário. Bom trabalho e boa viagem."]
@@ -113,11 +113,11 @@
   });
 
   var faq = [
-    ["Preciso pagar alguma coisa?", "Não. A participação na FAOL é gratuita. É necessário apenas ter o OMSI 2 original na Steam."],
+    ["Preciso pagar alguma coisa?", "Não. A participação na AVS é gratuita. É necessário apenas ter o OMSI 2 original na Steam."],
     ["Preciso baixar o mapa?", "Não. Na primeira entrada o próprio servidor envia a cidade e a frota. Pode levar alguns minutos; nas próximas é imediato."],
-    ["Como recebo o endereço do servidor?", "Pela Central da FAOL, no momento em que você assume sua escala."],
-    ["Posso transmitir ao vivo?", "Sim. Motoristas que transmitem a operação podem se cadastrar como criadores FAOL no Discord; as transmissões em destaque aparecem aqui no site, em Ao vivo na FAOL."],
-    ["A FAOL é uma empresa real?", "Não. É um projeto de simulação no openOMSI, sem vínculo com empresas reais de transporte."]
+    ["Como recebo o endereço do servidor?", "Pela Central da AVS, no momento em que você assume sua escala."],
+    ["Posso transmitir ao vivo?", "Sim. Motoristas que transmitem a operação podem se cadastrar como criadores AVS no Discord; as transmissões em destaque aparecem aqui no site, em Ao vivo na AVS."],
+    ["A AVS é uma empresa real?", "Não. É um projeto de simulação no openOMSI, sem vínculo com empresas reais de transporte."]
   ];
   /* (20/11) o FAQ agora fica FIXO no index.html (o Google le direto); a lista acima ficou so de referencia */
 
@@ -126,15 +126,15 @@
   function cartoes(copia) {
     FROTA.forEach(function (b) {
       var f = el("figure", { "class": "bus card" + (copia ? " copia" : "") },
-        '<img src="' + esc(b.foto) + '" alt="Ônibus ' + esc(b.modelo) + ' da frota FAOL em Nova Friburgo (OMSI 2)" loading="lazy" width="400" height="266">' +
-        "<figcaption><b>Frota FAOL</b><span>" + esc(b.modelo) + "</span></figcaption>");
+        '<img src="' + esc(b.foto) + '" alt="Ônibus ' + esc(b.modelo) + ' da frota AVS em Nova Friburgo (OMSI 2)" loading="lazy" width="400" height="266">' +
+        "<figcaption><b>Frota AVS</b><span>" + esc(b.modelo) + "</span></figcaption>");
       if (copia) { f.setAttribute("aria-hidden", "true"); }
       $("track").appendChild(f);
     });
   }
   cartoes(false); cartoes(true);
 
-  /* ---------- AGORA NA FAOL: antes da inauguracao, numeros fixos; depois, o que a Central publica */
+  /* ---------- AGORA NA AVS: antes da inauguracao, numeros fixos; depois, o que a Central publica */
   var inaugurado = S.inaugurado === true;
   var stats;
   if (inaugurado) {
@@ -196,7 +196,7 @@
   } else if (inaugurado && sit[S.servidor]) {
     $("sit-bola").className = "pulse " + sit[S.servidor][0];
     $("sit-txt").textContent = sit[S.servidor][1] + (S.atualizado ? " · " + S.atualizado : "");
-    $("selo-txt").textContent = S.servidor === "aberto" ? "Em operação" : "Operação FAOL";
+    $("selo-txt").textContent = S.servidor === "aberto" ? "Em operação" : "Operação AVS";
   }
 
   /* ---------- Quadro de Honra (so o nome de operador) */
@@ -252,7 +252,7 @@
   });
 })();
 
-/* (20/11) Ao vivo na FAOL: so aparece com transmissao; sem ninguem, "Proximas transmissoes" ou some. Players so
+/* (20/11) Ao vivo na AVS: so aparece com transmissao; sem ninguem, "Proximas transmissoes" ou some. Players so
    carregam quando a secao aparece na tela (nao pesa a abertura). Som desligado ao abrir. */
 (function () {
   "use strict";
@@ -264,7 +264,7 @@
   sec.hidden = false;
   if (!dest.length) {
     document.getElementById("av-rotulo").textContent = "Próximas transmissões";
-    document.getElementById("av-titulo").textContent = "📅 Agenda dos criadores FAOL.";
+    document.getElementById("av-titulo").textContent = "📅 Agenda dos criadores AVS.";
     var ul = document.getElementById("av-agenda"); ul.hidden = false;
     ul.innerHTML = agenda.map(function (a) { return "<li><b>" + esc(a.nome) + "</b> — " + esc(a.quando) + "</li>"; }).join("");
     return;
@@ -274,7 +274,7 @@
     var info = [d.linha ? "Linha " + esc(d.linha) : "", d.escala ? esc(d.escala) : ""].filter(Boolean).join(" · ");
     return '<article class="av-card"><div class="av-player" data-embed="' + esc(d.embed || "") + '">' +
       '<div class="av-capa">' + (d.embed ? "Carregando a transmissão…" : "Transmissão no canal do criador") + "</div></div>" +
-      '<div class="av-info"><b>' + esc(d.nome) + "</b><span>" + (info || "Em operação na FAOL") + "</span>" +
+      '<div class="av-info"><b>' + esc(d.nome) + "</b><span>" + (info || "Em operação na AVS") + "</span>" +
       '<a href="' + esc(d.link) + '" target="_blank" rel="noopener">Assistir no canal</a></div></article>';
   }).join("");
   if ((T.tambem || []).length) {

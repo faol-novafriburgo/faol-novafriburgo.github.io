@@ -1,4 +1,4 @@
-/* FAOL – Nova Friburgo LTDA · site institucional (Modelo 1 aprovado). HTML/CSS/JS puro. */
+/* AVS · Auto Viação Serrana · site institucional (Modelo 1 aprovado). HTML/CSS/JS puro. */
 :root{--marinho:#0F2D6E;--marinho2:#0A1F4D;--amarelo:#F5B800;--azul:#3BA7DD;--azul2:#2A86BD;--texto:#13213F;
   --cinza:#3D4C6B;--cinza2:#4A5875;--borda:#E1E8F3;--fundo2:#F3F6FB}
 *{box-sizing:border-box}
@@ -53,7 +53,7 @@ h1,h2,h3{font-family:Montserrat,sans-serif}
 .faixas{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column}
 .faixas i{display:block}
 
-/* agora na FAOL */
+/* agora na AVS */
 .agora{background:var(--fundo2)}
 .agora .wrap{padding-top:56px;padding-bottom:56px}
 .agora .cab{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
@@ -295,7 +295,7 @@ main>section>.wrap{width:100%}
 }
 @media (orientation:portrait) and (min-width:761px){.topo .heroi{justify-content:center}}   /* monitor em pe: texto no meio */
 
-/* (19/11) A FAOL em 24 segundos: vinheta em pe dentro de uma moldura de celular */
+/* (19/11) A AVS em 24 segundos: vinheta em pe dentro de uma moldura de celular */
 .vinheta{background:linear-gradient(135deg,#0A1F4D 0%,#0F2D6E 60%,#174A8F 100%);color:#FFFFFF}
 .vinheta .wrap{padding-top:72px;padding-bottom:72px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:center}
 .vinheta .vtexto{flex:1 1 360px;max-width:520px;display:flex;flex-direction:column;gap:16px}
@@ -353,7 +353,7 @@ main>section>.wrap{width:100%}
 /* (19/11) frase do cartao menor que o texto da secao */
 .linhas .cl p.cl-frase{font-size:14px;line-height:1.5;margin:0;color:#C9D6EE}
 
-/* (20/11) Ao vivo na FAOL: ate 3 players lado a lado (empilhados no celular), som desligado ao abrir */
+/* (20/11) Ao vivo na AVS: ate 3 players lado a lado (empilhados no celular), som desligado ao abrir */
 .aovivo{background:#081633;color:#FFFFFF}
 .aovivo .wrap{padding-top:56px;padding-bottom:56px}
 .aovivo .rotulo{color:#FF5A5A;display:flex;align-items:center;gap:8px}
@@ -380,7 +380,7 @@ main>section>.wrap{width:100%}
 .vf-res{margin-top:14px;font:600 16px Inter,sans-serif}
 .vf-res.ok{color:#1E8E4E}.vf-res.nao{color:#C0392B}.vf-res.aviso{color:#B45309}.vf-res div+div{margin-top:4px;font-weight:500;color:#334155}
 
-/* (20/11) Espaco do Passageiro e Anuncie na FAOL */
+/* (20/11) Espaco do Passageiro e Anuncie na AVS */
 .passageiro{background:#FFFFFF}.passageiro .wrap,.anuncie .wrap{padding-top:64px;padding-bottom:64px}
 .pas-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
 .pas-card{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;background:#F4F7FC;border:1px solid #DCE5F3;text-decoration:none;color:#0F2D6E}
@@ -397,7 +397,19 @@ main>section>.wrap{width:100%}
 .anuncie .btnY{display:inline-block;padding:14px 24px}
 @media (max-width:620px){.midia{min-width:0}.midia th:nth-child(2),.midia td:nth-child(2){display:none}}
 
-/* (20/11) Anuncie na FAOL sem preço: cartões do público no fundo azul */
+/* (20/11) Anuncie na AVS sem preço: cartões do público no fundo azul */
 .anuncie .pas-grade{margin:22px 0 26px}
 .anuncie .pas-card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#FFFFFF}
 .anuncie .pas-card b{color:#FFFFFF}.anuncie .pas-card span{color:#C9D6EE}
+
+/* AVS revisão visual 21/11: logo do topo legível sobre a foto (só PC) */
+@media (min-width:761px){
+  .heroi .logo{position:relative;isolation:isolate}
+  .heroi .logo::before{content:"";position:absolute;z-index:-1;left:-26%;right:-26%;top:-30%;bottom:-30%;
+    background:radial-gradient(closest-side,rgba(10,32,84,.94) 0%,rgba(10,32,84,.86) 52%,rgba(10,32,84,.5) 78%,rgba(10,32,84,0) 100%);
+    pointer-events:none}
+  .heroi .logo img{filter:drop-shadow(0 3px 10px rgba(0,0,0,.55))}
+}
+/* sigla no menu e no rodapé (o nome por extenso fica ilegível pequeno) */
+.cab img.sigla{height:46px}
+.rodape .marca img.sigla{height:64px}

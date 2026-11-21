@@ -1,5 +1,5 @@
-/* gerado pela Central FAOL - documentos e situacao atual do vinculo (sem dados pessoais) */
-window.FAOL_DOCUMENTOS_CONFERIDO = "21/11/2026 16:12";
+/* gerado pela Central AVS - documentos e situacao atual do vinculo (sem dados pessoais) */
+window.FAOL_DOCUMENTOS_CONFERIDO = "21/11/2026 16:34";
 window.FAOL_DOCUMENTOS = {
  "FICHA-2026-0001-T66B": {
   "tipo": "Extrato da Ficha Funcional",
@@ -17,7 +17,7 @@ window.FAOL_DOCUMENTOS = {
   "tipo": "Extrato da Ficha Funcional",
   "apelido": "Mesquita",
   "data": "20/11/2026",
-  "matricula": "FAOL-0001",
+  "matricula": "AVS-0001",
   "situacao": "Ativo",
   "categoria": "Motorista Júnior",
   "periodos": [
@@ -26,13 +26,14 @@ window.FAOL_DOCUMENTOS = {
     null
    ]
   ],
-  "substituido": "21/11/2026"
+  "substituido": "21/11/2026",
+  "nome_anterior": 1
  },
  "FICHA-2026-0004-THFR": {
   "tipo": "Extrato da Ficha Funcional",
   "apelido": "Mesquita",
   "data": "21/11/2026",
-  "matricula": "FAOL-0001",
+  "matricula": "AVS-0001",
   "situacao": "Ativo",
   "categoria": "Motorista Júnior",
   "periodos": [
@@ -40,13 +41,14 @@ window.FAOL_DOCUMENTOS = {
     "18/11/2026",
     null
    ]
-  ]
+  ],
+  "nome_anterior": 1
  },
  "FICHA-2026-0005-4KHQ": {
   "tipo": "Extrato da Ficha Funcional",
   "apelido": "Mesquita",
   "data": "21/11/2026",
-  "matricula": "FAOL-0001",
+  "matricula": "AVS-0001",
   "situacao": "Ativo",
   "categoria": "Motorista Júnior",
   "periodos": [
@@ -54,6 +56,7 @@ window.FAOL_DOCUMENTOS = {
     "18/11/2026",
     null
    ]
-  ]
+  ],
+  "nome_anterior": 1
  }
 };
