@@ -299,11 +299,11 @@
   function conferir(c) {
     c = String(c || "").trim().toUpperCase();
     if (!c) { return; }
-    var d = (window.FAOL_DOCUMENTOS || {})[c];
-    res.className = "vf-res " + (d && !d.anulado ? "ok" : "nao");
-    res.textContent = d && d.anulado ? ("⚠️ Documento anulado em " + d.anulado + " — " + d.tipo + ". Ele não tem mais validade.")
-                    : d ? ("✅ Documento válido — " + d.tipo + " · " + d.apelido + " · emitido em " + d.data)
-                        : "❌ Código não encontrado. Confira as letras e os números.";
+    /* (21/11) situacao REAL do vinculo (js/verificar.js): vigente, suspensa, sem vigencia, via substituida */
+    var r = window.FAOL_VERIFICAR ? window.FAOL_VERIFICAR(c, window.FAOL_DOCUMENTOS, window.FAOL_DOCUMENTOS_CONFERIDO)
+                                  : { classe: "nao", linhas: ["❌ Código não encontrado. Confira as letras e os números."] };
+    res.className = "vf-res " + r.classe;
+    res.innerHTML = r.linhas.map(function (l) { return "<div>" + l + "</div>"; }).join("");
   }
   form.addEventListener("submit", function (e) { e.preventDefault(); conferir(inp.value); });
   var m = /[?&]c=([A-Za-z0-9-]+)/.exec(location.hash + location.search);

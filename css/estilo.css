@@ -337,63 +337,63 @@ main>section>.wrap{width:100%}
 .celular video{width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;border-radius:24px;background:#000}
 .vbotoes{position:static;left:auto;right:auto;bottom:auto}
 .vbotoes button{background:rgba(255,255,255,.10)}
-
-/* (19/11 noite, item e) letreiro animado (origem ⇄ destino rolando), variante e frase da linha */
-.cl-led{gap:12px}
-.cl-led b{flex:0 0 auto}
-.cl-tela{flex:1 1 auto;overflow:hidden;white-space:nowrap;font-size:14px;color:#FFB020;opacity:.95;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.cl-rolar{display:inline-block;padding-left:100%;animation:faolLetreiro 14s linear infinite}
-@keyframes faolLetreiro{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-@media (prefers-reduced-motion:reduce){.cl-rolar{animation:none;padding-left:0}}
-.cl-var{margin-top:-4px;font:600 12px Inter,sans-serif;color:#F5B800;text-transform:uppercase;letter-spacing:.06em}
-.cl-frase{margin:0;font:400 14px/1.55 Inter,sans-serif;color:#C9D6EE}
-.trabalhe .adm{margin-top:10px;font-size:15px;opacity:.95}
+
+/* (19/11 noite, item e) letreiro animado (origem ⇄ destino rolando), variante e frase da linha */
+.cl-led{gap:12px}
+.cl-led b{flex:0 0 auto}
+.cl-tela{flex:1 1 auto;overflow:hidden;white-space:nowrap;font-size:14px;color:#FFB020;opacity:.95;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.cl-rolar{display:inline-block;padding-left:100%;animation:faolLetreiro 14s linear infinite}
+@keyframes faolLetreiro{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.cl-rolar{animation:none;padding-left:0}}
+.cl-var{margin-top:-4px;font:600 12px Inter,sans-serif;color:#F5B800;text-transform:uppercase;letter-spacing:.06em}
+.cl-frase{margin:0;font:400 14px/1.55 Inter,sans-serif;color:#C9D6EE}
+.trabalhe .adm{margin-top:10px;font-size:15px;opacity:.95}
 
 /* (19/11) frase do cartao menor que o texto da secao */
 .linhas .cl p.cl-frase{font-size:14px;line-height:1.5;margin:0;color:#C9D6EE}
-
-/* (20/11) Ao vivo na FAOL: ate 3 players lado a lado (empilhados no celular), som desligado ao abrir */
-.aovivo{background:#081633;color:#FFFFFF}
-.aovivo .wrap{padding-top:56px;padding-bottom:56px}
-.aovivo .rotulo{color:#FF5A5A;display:flex;align-items:center;gap:8px}
-.aovivo .h2{color:#FFFFFF;margin:8px 0 24px}
-.pulse.vermelho{background:#FF3B3B}
-.av-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.av-card{background:#0F2048;border:1px solid #23345A;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.av-player{position:relative;aspect-ratio:16/9;background:#000}
-.av-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.av-capa{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9FB3D6;font:600 15px Inter,sans-serif}
-.av-info{padding:14px 16px;display:flex;flex-direction:column;gap:6px}
-.av-info b{font:700 17px Montserrat,sans-serif}
-.av-info span{color:#C9D6EE;font-size:14px}
-.av-info a{align-self:flex-start;margin-top:6px;background:#F5B800;color:#0A1F4D;font-weight:700;border-radius:8px;padding:9px 14px;text-decoration:none}
-.av-tambem{margin-top:18px;color:#C9D6EE}
-.av-tambem a{color:#F5B800}
-.av-agenda{margin:0;padding-left:18px;color:#C9D6EE;line-height:1.8}
-
-/* (20/11) Verificar documento */
-.verificar{background:#F4F7FC}
-.verificar .wrap{padding-top:56px;padding-bottom:56px}
-.vf-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.vf-form input{flex:1 1 260px;font:600 17px Inter,sans-serif;padding:14px 16px;border:2px solid #C9D6EE;border-radius:10px;text-transform:uppercase}
-.vf-res{margin-top:14px;font:600 16px Inter,sans-serif}
-.vf-res.ok{color:#1E8E4E}.vf-res.nao{color:#C0392B}
-
-/* (20/11) Espaco do Passageiro e Anuncie na FAOL */
-.passageiro{background:#FFFFFF}.passageiro .wrap,.anuncie .wrap{padding-top:64px;padding-bottom:64px}
-.pas-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
-.pas-card{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;background:#F4F7FC;border:1px solid #DCE5F3;text-decoration:none;color:#0F2D6E}
-.pas-card b{font:700 18px Montserrat,sans-serif}.pas-card span{font-size:15px;color:#3B4A66}
-.pas-card:hover{border-color:#16B7C2}
-.pas-vitrine{margin-top:28px}.pas-vitrine h3{font:700 18px Montserrat,sans-serif;color:#0F2D6E}
-.anuncie{background:#0F2D6E;color:#FFFFFF}.anuncie .h2{color:#FFFFFF}.anuncie .rotulo{color:#F5B800}
-.tabela-wrap{overflow-x:auto;margin:22px 0}
-.midia{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
-.midia th,.midia td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.15)}
-.midia th{color:#F5B800;font-weight:700}.midia small{opacity:.75}
-.midia tr.breve td{opacity:.6;font-style:italic}
-.anuncie .nota{color:#C9D6EE;font-size:14px;margin-bottom:18px}
+
+/* (20/11) Ao vivo na FAOL: ate 3 players lado a lado (empilhados no celular), som desligado ao abrir */
+.aovivo{background:#081633;color:#FFFFFF}
+.aovivo .wrap{padding-top:56px;padding-bottom:56px}
+.aovivo .rotulo{color:#FF5A5A;display:flex;align-items:center;gap:8px}
+.aovivo .h2{color:#FFFFFF;margin:8px 0 24px}
+.pulse.vermelho{background:#FF3B3B}
+.av-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.av-card{background:#0F2048;border:1px solid #23345A;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.av-player{position:relative;aspect-ratio:16/9;background:#000}
+.av-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.av-capa{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9FB3D6;font:600 15px Inter,sans-serif}
+.av-info{padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.av-info b{font:700 17px Montserrat,sans-serif}
+.av-info span{color:#C9D6EE;font-size:14px}
+.av-info a{align-self:flex-start;margin-top:6px;background:#F5B800;color:#0A1F4D;font-weight:700;border-radius:8px;padding:9px 14px;text-decoration:none}
+.av-tambem{margin-top:18px;color:#C9D6EE}
+.av-tambem a{color:#F5B800}
+.av-agenda{margin:0;padding-left:18px;color:#C9D6EE;line-height:1.8}
+
+/* (20/11) Verificar documento */
+.verificar{background:#F4F7FC}
+.verificar .wrap{padding-top:56px;padding-bottom:56px}
+.vf-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.vf-form input{flex:1 1 260px;font:600 17px Inter,sans-serif;padding:14px 16px;border:2px solid #C9D6EE;border-radius:10px;text-transform:uppercase}
+.vf-res{margin-top:14px;font:600 16px Inter,sans-serif}
+.vf-res.ok{color:#1E8E4E}.vf-res.nao{color:#C0392B}.vf-res.aviso{color:#B45309}.vf-res div+div{margin-top:4px;font-weight:500;color:#334155}
+
+/* (20/11) Espaco do Passageiro e Anuncie na FAOL */
+.passageiro{background:#FFFFFF}.passageiro .wrap,.anuncie .wrap{padding-top:64px;padding-bottom:64px}
+.pas-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+.pas-card{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;background:#F4F7FC;border:1px solid #DCE5F3;text-decoration:none;color:#0F2D6E}
+.pas-card b{font:700 18px Montserrat,sans-serif}.pas-card span{font-size:15px;color:#3B4A66}
+.pas-card:hover{border-color:#16B7C2}
+.pas-vitrine{margin-top:28px}.pas-vitrine h3{font:700 18px Montserrat,sans-serif;color:#0F2D6E}
+.anuncie{background:#0F2D6E;color:#FFFFFF}.anuncie .h2{color:#FFFFFF}.anuncie .rotulo{color:#F5B800}
+.tabela-wrap{overflow-x:auto;margin:22px 0}
+.midia{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.midia th,.midia td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.15)}
+.midia th{color:#F5B800;font-weight:700}.midia small{opacity:.75}
+.midia tr.breve td{opacity:.6;font-style:italic}
+.anuncie .nota{color:#C9D6EE;font-size:14px;margin-bottom:18px}
 .anuncie .btnY{display:inline-block;padding:14px 24px}
 @media (max-width:620px){.midia{min-width:0}.midia th:nth-child(2),.midia td:nth-child(2){display:none}}
 

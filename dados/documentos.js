@@ -1,4 +1,5 @@
-/* gerado pela Central FAOL - documentos validos (sem dados pessoais) */
+/* gerado pela Central FAOL - documentos e situacao atual do vinculo (sem dados pessoais) */
+window.FAOL_DOCUMENTOS_CONFERIDO = "21/11/2026 00:31";
 window.FAOL_DOCUMENTOS = {
  "FICHA-2026-0001-T66B": {
   "tipo": "Extrato da Ficha Funcional",
@@ -15,6 +16,30 @@ window.FAOL_DOCUMENTOS = {
  "FICHA-2026-0003-W1PL": {
   "tipo": "Extrato da Ficha Funcional",
   "apelido": "Mesquita",
-  "data": "20/11/2026"
+  "data": "20/11/2026",
+  "matricula": "FAOL-0001",
+  "situacao": "Ativo",
+  "categoria": "Motorista Júnior",
+  "periodos": [
+   [
+    "18/11/2026",
+    null
+   ]
+  ],
+  "substituido": "21/11/2026"
+ },
+ "FICHA-2026-0004-THFR": {
+  "tipo": "Extrato da Ficha Funcional",
+  "apelido": "Mesquita",
+  "data": "21/11/2026",
+  "matricula": "FAOL-0001",
+  "situacao": "Ativo",
+  "categoria": "Motorista Júnior",
+  "periodos": [
+   [
+    "18/11/2026",
+    null
+   ]
+  ]
  }
 };
