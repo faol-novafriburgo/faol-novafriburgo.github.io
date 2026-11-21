@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como entrar na AVS | AVS · Auto Viação Serrana</title>
+<meta name="description" content="Acesso à operação da AVS · Auto Viação Serrana pelo AVS Dirigir, a partir da escala assumida no Discord.">
+<link rel="icon" type="image/png" href="../imagens/icone.png?v=avs1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--marinho:#0F2D6E;--marinho2:#0A1F4D;--amarelo:#F5B800;--turquesa:#11A3AE;--texto:#13213F;--cinza:#3D4C6B;--borda:#E1E8F3;--fundo2:#F3F6FB}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;font-family:Inter,system-ui,"Segoe UI",sans-serif;color:var(--texto);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:var(--marinho)}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+.cab{background:var(--marinho);color:#fff}
+.cab .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+.cab img{height:42px;width:auto;display:block}
+.cab nav a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;margin-left:18px;opacity:.9}
+.cab nav a:hover{opacity:1;text-decoration:underline}
+.abre{background:linear-gradient(160deg,var(--marinho),var(--marinho2));color:#fff;padding:56px 0 48px}
+.rotulo{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--amarelo);font-weight:700}
+h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:40px;line-height:1.15;margin:8px 0 14px}
+.abre p{max-width:760px;font-size:18px;color:#E6ECF7;margin:0 0 22px}
+.botoes{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px}
+.btn.pri{background:var(--amarelo);color:var(--marinho2)}
+.btn.sec{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+.btn.sec2{background:var(--fundo2);color:var(--marinho);border:1px solid var(--borda)}
+section.bloco{padding:52px 0;border-bottom:1px solid var(--borda)}
+h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:28px;color:var(--marinho);margin:0 0 10px}
+.sub{color:var(--cinza);margin:0 0 22px;max-width:760px}
+ul.req{margin:0;padding-left:20px;color:var(--cinza)}
+ol.passos{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+ol.passos li{display:grid;grid-template-columns:52px 1fr 260px;gap:18px;align-items:center;background:var(--fundo2);border:1px solid var(--borda);border-radius:14px;padding:18px}
+.num{width:44px;height:44px;border-radius:50%;background:var(--marinho);color:#fff;font-family:Montserrat,sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.passos h3{margin:0 0 4px;font-size:17px;color:var(--marinho)}
+.passos p{margin:0;color:var(--cinza);font-size:15px}
+.img{aspect-ratio:16/9;border-radius:10px;border:1px dashed #B9C6DD;background:#fff;display:flex;align-items:center;justify-content:center;color:#8A97B1;font-size:12px;text-align:center;padding:8px}
+.img img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.selo{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;background:#EAF8F9;border:1px solid #BFE7EA;border-radius:14px;padding:22px}
+.selo img{width:64px;height:64px;border-radius:12px}
+.selo p{margin:0 0 8px;color:var(--texto)}
+.hash{font-family:Consolas,"Courier New",monospace;font-size:13px;word-break:break-all;background:#fff;border:1px solid var(--borda);border-radius:8px;padding:8px 10px;display:block;color:var(--marinho)}
+details{border:1px solid var(--borda);border-radius:10px;padding:14px 18px;margin-bottom:10px;background:#fff}
+summary{cursor:pointer;font-weight:700;color:var(--marinho)}
+details p{margin:8px 0 0;color:var(--cinza)}
+.ajuda{background:var(--fundo2)}
+.rod{padding:26px 0;color:#5B6884;font-size:14px;text-align:center}
+@media (max-width:760px){
+  h1{font-size:30px}.abre{padding:40px 0 36px}.abre p{font-size:16px}
+  ol.passos li{grid-template-columns:44px 1fr}.passos .img{grid-column:1/-1}
+  .cab nav{display:none}
+}
+</style>
+</head>
+<body>
+<header class="cab">
+  <div class="wrap">
+    <a href="../"><img class="sigla" src="../imagens/logo_sigla_branco.png?v=avs1" alt="AVS · Auto Viação Serrana"></a>
+    <nav aria-label="Principal"><a href="../#empresa">A empresa</a><a href="../#linhas">Linhas</a><a href="../#frota">Frota</a><a href="../#duvidas">Dúvidas</a></nav>
+  </div>
+</header>
+
+<section class="abre">
+  <div class="wrap">
+    <div class="rotulo">Acesso à operação</div>
+    <h1>Como entrar na AVS</h1>
+    <p>O acesso à operação da AVS · Auto Viação Serrana é realizado pelo AVS Dirigir, a partir da escala assumida no Discord. O motorista assume a escala confirmando a próxima saída oferecida (ou reserva escolhendo linha e horário) e seleciona "Dirigir": o jogo é aberto diretamente no serviço assumido, sem necessidade de selecionar a escala na tela inicial do openOMSI. A instalação do AVS Dirigir é realizada uma única vez.</p>
+    <div class="botoes">
+      <a class="btn pri" href="../downloads/AVS-Dirigir.exe" download>Baixar o AVS Dirigir</a>
+      <a class="btn sec" href="#" data-convite>Acessar o Discord</a>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="bloco">
+  <div class="wrap">
+    <h2>Requisitos</h2>
+    <ul class="req">
+      <li>Computador com Windows 10 ou 11 (64 bits).</li>
+      <li>OMSI 2 original e openOMSI na mesma versão do servidor, conforme as orientações do canal Como instalar, no Discord.</li>
+      <li>Cadastro aprovado na Central de Atendimento da AVS, no Discord.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="bloco" id="primeira-vez">
+  <div class="wrap">
+    <h2>Primeira utilização: passo a passo</h2>
+    <p class="sub">O procedimento a seguir é realizado uma única vez. Trata-se de procedimento seguro, garantido pela AVS · Auto Viação Serrana.</p>
+    <ol class="passos">
+      <li><span class="num">1</span><div><h3>Obter o AVS Dirigir</h3><p>Utilize o botão "Baixar o AVS Dirigir" desta página ou do canal Como instalar, no Discord. A AVS não envia o programa por mensagem privada.</p></div><div class="img" data-passo="1">Imagem ilustrativa do passo 1</div></li>
+      <li><span class="num">2</span><div><h3>Concluir a instalação</h3><p>Abra o arquivo obtido. A instalação leva cerca de um minuto e não solicita senha de administrador.</p></div><div class="img" data-passo="2">Imagem ilustrativa do passo 2</div></li>
+      <li><span class="num">3</span><div><h3>Confirmar a execução, se solicitado</h3><p>Caso o Windows exiba "O Windows protegeu o computador", selecione "Mais informações" e, em seguida, "Executar assim mesmo". O aviso é exibido para programas recentes, ainda não reconhecidos pelo Windows.</p></div><div class="img" data-passo="3">Imagem ilustrativa do passo 3</div></li>
+      <li><span class="num">4</span><div><h3>Assumir a escala</h3><p>No Discord, em Escalas e linhas, selecione "Assumir escala" e confirme a próxima saída oferecida (ou "Reservar escala" para escolher a linha e o horário). Defina o local de início e o ônibus, confirme e selecione "Dirigir".</p></div><div class="img" data-passo="4">Imagem ilustrativa do passo 4</div></li>
+      <li><span class="num">5</span><div><h3>Autorizar o navegador</h3><p>Na primeira utilização, o navegador solicitará autorização para abrir o AVS Dirigir. Recomenda-se selecionar "Sempre permitir" e, em seguida, "Abrir". Nas utilizações seguintes, a autorização não será solicitada novamente.</p></div><div class="img" data-passo="5">Imagem ilustrativa do passo 5</div></li>
+      <li><span class="num">6</span><div><h3>Início do serviço</h3><p>O jogo é aberto diretamente no serviço assumido. Bom trabalho.</p></div><div class="img" data-passo="6">Imagem ilustrativa do passo 6</div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="bloco" id="primeiro-acesso">
+  <div class="wrap">
+    <h2>Primeiro acesso ao jogo</h2>
+    <p class="sub">A demora ocorre somente no primeiro acesso.</p>
+    <ul class="req">
+      <li>No primeiro acesso, o servidor entrega ao jogo o mapa e os ônibus da AVS. O processo leva alguns minutos, conforme a velocidade da conexão.</li>
+      <li>O conteúdo fica armazenado em uma área de cache do jogo e não altera a instalação do openOMSI nem os mapas do motorista.</li>
+      <li>Nos acessos seguintes, a abertura é rápida; somente o que a AVS atualizar é transferido novamente.</li>
+      <li>Por esse motivo, o primeiro acesso é realizado fora de escala, sem fiscalização, em janela de 60 minutos liberada pela Integração AVS, no Discord.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="wrap">
+    <h2>Segurança</h2>
+    <div class="selo">
+      <img src="../imagens/icone.png?v=avs1" alt="">
+      <div>
+        <p><strong>Programa oficial da AVS · Auto Viação Serrana.</strong> O AVS Dirigir não coleta dados pessoais, não solicita senha e apenas abre o jogo no serviço assumido. Recomenda-se obter o arquivo somente pelos canais oficiais: esta página e o canal Como instalar, no Discord.</p>
+        <p>Código de verificação do arquivo (SHA-256), para conferência:</p>
+        <code class="hash" id="sha256">C3CC2F1EB89FF35E6E9D0358D36D4FA43DAC7CEE510E1817DC6473A795E8E850</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <details><summary>É necessário utilizar a tela inicial do openOMSI?</summary><p>Somente para ajustar gráficos, som e controles. A escala é assumida no Discord e aberta pelo AVS Dirigir.</p></details>
+    <details><summary>É possível jogar no modo individual?</summary><p>Sim. O modo individual continua disponível pela tela inicial do openOMSI, normalmente.</p></details>
+    <details><summary>A opção "Dirigir" não aparece mais no Discord.</summary><p>Selecione novamente "Assumir escala", em Escalas e linhas: a reserva ativa é exibida primeiro, com a opção "Dirigir". A opção fica disponível a partir de 15 minutos antes da saída.</p></details>
+    <details><summary>É possível reservar pelo celular?</summary><p>Sim. A reserva pode ser feita pelo celular; no horário da escala, utilize o Discord no computador para dirigir.</p></details>
+    <details><summary>O antivírus emitiu um aviso.</summary><p>Alguns antivírus ainda não reconhecem programas recentes. Confira o código de verificação acima e, se for o mesmo, autorize o arquivo. Persistindo a dúvida, abra um atendimento.</p></details>
+  </div>
+</section>
+
+<section class="bloco ajuda">
+  <div class="wrap">
+    <h2>Atendimento</h2>
+    <p class="sub">Caso alguma etapa não funcione, abra um atendimento no Discord, no canal Como instalar, pela opção "Tive um problema". A equipe de Manutenção da AVS dará o retorno.</p>
+    <div class="botoes"><a class="btn sec2" href="#" data-convite>Acessar o Discord</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="rod">AVS · Auto Viação Serrana · Operação no simulador OMSI 2 · <a href="../">Página inicial</a><p class="legal" style="font-size:12px;opacity:.85;margin-top:6px">A AVS · Auto Viação Serrana é uma empresa virtual de simulação (OMSI 2 / openOMSI), sem vínculo com operadoras reais de transporte. Os ônibus usam pinturas criadas pela comunidade para dar imersão.</p></footer>
+
+<script src="../js/config.js"></script>
+<script>
+(function () {
+  var c = (window.FAOL_CONFIG || {}).convite_discord;
+  document.querySelectorAll("[data-convite]").forEach(function (a) {
+    if (c) { a.href = c; a.target = "_blank"; a.rel = "noopener"; }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Dirigir | AVS · Auto Viação Serrana</title>
+<link rel="icon" type="image/png" href="../imagens/icone.png?v=avs1">
+<style>
+:root{--marinho:#0F2D6E;--marinho2:#0A1F4D;--amarelo:#F5B800;--turquesa:#11A3AE;--texto:#13213F;--cinza:#3D4C6B;--borda:#E1E8F3}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--marinho),var(--marinho2));
+  font-family:Inter,system-ui,"Segoe UI",sans-serif;color:var(--texto);padding:24px}
+.cartao{background:#fff;border-radius:18px;max-width:560px;width:100%;padding:34px 30px;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center}
+.logo{width:150px;height:auto;margin-bottom:10px}
+h1{font-family:Montserrat,"Segoe UI",sans-serif;color:var(--marinho);font-size:25px;margin:8px 0 6px}
+p{color:var(--cinza);line-height:1.55;margin:10px 0}
+.giro{width:38px;height:38px;border:4px solid var(--borda);border-top-color:var(--turquesa);border-radius:50%;margin:16px auto;animation:g 1s linear infinite}
+@keyframes g{to{transform:rotate(360deg)}}
+.oculto{display:none}
+.botao{display:inline-block;background:var(--amarelo);color:var(--marinho2);text-decoration:none;font-weight:700;border-radius:8px;padding:12px 20px;margin:8px 6px 4px;border:0;cursor:pointer;font-size:15px;font-family:inherit}
+.botao.sec{background:#EEF2F8;color:var(--marinho)}
+.aviso{border-top:1px solid var(--borda);margin-top:18px;padding-top:14px;font-size:13px;color:#5B6884}
+@media (prefers-reduced-motion:reduce){.giro{animation:none}}
+</style>
+</head>
+<body>
+<main class="cartao">
+  <img class="logo" src="../imagens/logo_cor.png?v=avs1" alt="AVS · Auto Viação Serrana">
+
+  <section id="abrindo" class="oculto">
+    <h1>Abrindo o serviço</h1>
+    <div class="giro" aria-hidden="true"></div>
+    <p>O AVS Dirigir está abrindo o jogo no serviço assumido. Esta página pode ser fechada.</p>
+    <p class="oculto" id="msg-pergunta">Caso o navegador solicite autorização para abrir o AVS Dirigir, recomenda-se selecionar "Sempre permitir" e, em seguida, "Abrir".</p>
+    <button class="botao sec" id="tentar" type="button">Abrir novamente</button>
+  </section>
+
+  <section id="instalar" class="oculto">
+    <h1>O jogo não foi aberto</h1>
+    <p>Caso o navegador tenha solicitado autorização, confirme a abertura do AVS Dirigir.</p>
+    <p>Caso o AVS Dirigir ainda não esteja instalado neste computador, realize a instalação uma única vez e selecione "Abrir novamente".</p>
+    <a class="botao" href="../downloads/AVS-Dirigir.exe" download>Baixar o AVS Dirigir</a>
+    <button class="botao sec" id="tentar2" type="button">Abrir novamente</button>
+    <p class="aviso">Orientações completas em <a href="../como-entrar/">Como entrar na AVS</a>.</p>
+  </section>
+
+  <section id="celular" class="oculto">
+    <h1>Reserva registrada</h1>
+    <p>O serviço é aberto somente no computador.</p>
+    <p>No horário da escala, utilize o Discord no computador e selecione "Dirigir".</p>
+    <p class="aviso"><a href="../como-entrar/">Como entrar na AVS</a></p>
+  </section>
+
+  <section id="invalido" class="oculto">
+    <h1>Escala não identificada</h1>
+    <p>Esta página é aberta pela opção "Dirigir", no Discord da AVS.</p>
+    <p>Para gerar a opção novamente, selecione "Assumir escala" em Escalas e linhas, no Discord: a reserva ativa é exibida com a opção "Dirigir".</p>
+    <p class="aviso"><a href="../como-entrar/">Como entrar na AVS</a></p>
+  </section>
+</main>
+<script>
+(function () {
+  "use strict";
+  var m = /(?:^#|&)d=([A-Za-z0-9_-]{8,1200})/.exec(location.hash || "");
+  // os dados ficam só na memória desta aba: tira o # da barra de endereço e do histórico
+  try { if (location.hash) history.replaceState(null, "", location.pathname); } catch (e) {}
+  function mostrar(id) {
+    ["abrindo", "instalar", "invalido", "celular"].forEach(function (s) { document.getElementById(s).classList.toggle("oculto", s !== id); });
+  }
+  if (!m) { mostrar("invalido"); return; }
+  // (20/11 20:03, item 4.6) celular/tablet: o jogo é só no PC
+  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || "")) { mostrar("celular"); return; }
+  var dados = m[1];
+  var saiu = false;
+  window.addEventListener("blur", function () { saiu = true; });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) saiu = true; });
+  function abrir() {
+    saiu = false;
+    mostrar("abrindo");
+    window.location.href = "avs://entrar/?d=" + dados;
+    setTimeout(function () { document.getElementById("msg-pergunta").classList.remove("oculto"); }, 1200);
+    setTimeout(function () { if (!saiu) mostrar("instalar"); }, 4500);
+  }
+  document.getElementById("tentar").addEventListener("click", abrir);
+  document.getElementById("tentar2").addEventListener("click", abrir);
+  abrir();
+})();
+</script>
+<footer style="max-width:640px;margin:18px auto;padding:0 16px;font-size:12px;color:#5B6884;text-align:center">A AVS · Auto Viação Serrana é uma empresa virtual de simulação (OMSI 2 / openOMSI), sem vínculo com operadoras reais de transporte. Os ônibus usam pinturas criadas pela comunidade para dar imersão.</footer>
+</body>
+</html>
