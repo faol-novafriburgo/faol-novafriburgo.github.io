@@ -140,7 +140,8 @@
   if (inaugurado) {
     /* (19/11) com 0 motoristas em escala nao destaca o zero: mostra so a situacao do servidor */
     var nEsc = S.motoristas_em_escala || 0, nLin = (S.linhas_rodando || []).length;
-    var sitTxt = { aberto: "Aberto", fechado: "Fechado", manutencao: "Manutenção" }[S.servidor] || "Aberto";
+    var sitTxt = S.status_fixo === "manutencao" ? "Em manutenção"   /* (21/11) indicador fixo pela Presidência */
+      : ({ aberto: "Aberto", fechado: "Fechado", manutencao: "Manutenção" }[S.servidor] || "Aberto");
     stats = [
       nEsc > 0 ? { v: nEsc, suf: " / " + (S.vagas || 16), r: "Motoristas em escala agora", cor: "#0F2D6E" }
                : { v: null, txt: sitTxt, r: "Servidor", cor: "#0F2D6E" },
@@ -160,7 +161,7 @@
   var alvos = [];
   stats.forEach(function (s) {
     var c = el("div", { "class": "stat card", "style": "border-top-color:" + s.cor },
-      '<div class="v">' + (s.v === null ? s.txt : "0" + esc(s.suf)) + '</div><div class="r">' + esc(s.r) + "</div>");
+      '<div class="v"' + (s.v === null && s.txt === "Em manutenção" ? ' style="font-size:26px"' : '') + '>' + (s.v === null ? s.txt : "0" + esc(s.suf)) + '</div><div class="r">' + esc(s.r) + "</div>");
     $("stats").appendChild(c);
     if (s.v !== null) { alvos.push({ e: c.querySelector(".v"), v: s.v, suf: s.suf }); }
   });
@@ -186,7 +187,13 @@
   var sit = { aberto: ["verde", "Servidor aberto · atualizado automaticamente pela Central"],
               fechado: ["vermelho", "Servidor fechado no momento · atualizado automaticamente pela Central"],
               manutencao: ["", "Servidor em manutenção programada · atualizado automaticamente pela Central"] };
-  if (inaugurado && sit[S.servidor]) {
+  /* (21/11) status fixo (planta site.status_fixo): "Em manutenção", parado, sem hora e sem atualização */
+  if (inaugurado && S.status_fixo === "manutencao") {
+    $("sit-bola").className = "pulse"; $("sit-bola").style.animation = "none";
+    $("sit-txt").textContent = "Servidor em manutenção";
+    $("selo-txt").textContent = "Em manutenção";
+    var seloBola = document.querySelector("#selo .pulse"); if (seloBola) { seloBola.style.animation = "none"; }
+  } else if (inaugurado && sit[S.servidor]) {
     $("sit-bola").className = "pulse " + sit[S.servidor][0];
     $("sit-txt").textContent = sit[S.servidor][1] + (S.atualizado ? " · " + S.atualizado : "");
     $("selo-txt").textContent = S.servidor === "aberto" ? "Em operação" : "Operação FAOL";
