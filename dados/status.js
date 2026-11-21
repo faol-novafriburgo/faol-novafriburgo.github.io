@@ -1,7 +1,7 @@
-/* gerado pela Central FAOL em 20/11/2026 19:26 - nao editar a mao */
+/* gerado pela Central FAOL em 21/11/2026 12:04 - nao editar a mao */
 window.FAOL_STATUS = {
  "inaugurado": true,
- "servidor": "aberto",
+ "servidor": "manutencao",
  "motoristas_em_escala": 0,
  "vagas": 16,
  "linhas_rodando": [],
@@ -15,5 +15,5 @@ window.FAOL_STATUS = {
  },
  "eventos": [],
  "sugestoes_implantadas": [],
- "atualizado": "20/11 19:26"
+ "status_fixo": "manutencao"
 };
