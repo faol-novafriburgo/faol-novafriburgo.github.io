@@ -41,6 +41,8 @@ ol.passos li{display:grid;grid-template-columns:52px 1fr 260px;gap:18px;align-it
 .passos p{margin:0;color:var(--cinza);font-size:15px}
 .img{aspect-ratio:16/9;border-radius:10px;border:1px dashed #B9C6DD;background:#fff;display:flex;align-items:center;justify-content:center;color:#8A97B1;font-size:12px;text-align:center;padding:8px}
 .img img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.img:has(img){border:1px solid #D5DEEC;padding:0;background:#EEF2F8}
+ol.passos li.sem-img{grid-template-columns:52px 1fr}
 .selo{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;background:#EAF8F9;border:1px solid #BFE7EA;border-radius:14px;padding:22px}
 .selo img{width:64px;height:64px;border-radius:12px}
 .selo p{margin:0 0 8px;color:var(--texto)}
@@ -94,12 +96,12 @@ details p{margin:8px 0 0;color:var(--cinza)}
     <h2>Primeira utilização: passo a passo</h2>
     <p class="sub">O procedimento a seguir é realizado uma única vez. Trata-se de procedimento seguro, garantido pela AVS · Auto Viação Serrana.</p>
     <ol class="passos">
-      <li><span class="num">1</span><div><h3>Obter o AVS Dirigir</h3><p>Utilize o botão "Baixar o AVS Dirigir" desta página ou do canal Como instalar, no Discord. A AVS não envia o programa por mensagem privada.</p></div><div class="img" data-passo="1">Imagem ilustrativa do passo 1</div></li>
-      <li><span class="num">2</span><div><h3>Concluir a instalação</h3><p>Abra o arquivo obtido. A instalação leva cerca de um minuto e não solicita senha de administrador.</p></div><div class="img" data-passo="2">Imagem ilustrativa do passo 2</div></li>
-      <li><span class="num">3</span><div><h3>Confirmar a execução, se solicitado</h3><p>Caso o Windows exiba "O Windows protegeu o computador", selecione "Mais informações" e, em seguida, "Executar assim mesmo". O aviso é exibido para programas recentes, ainda não reconhecidos pelo Windows.</p></div><div class="img" data-passo="3">Imagem ilustrativa do passo 3</div></li>
-      <li><span class="num">4</span><div><h3>Assumir a escala</h3><p>No Discord, em Escalas e linhas, selecione "Assumir escala" e confirme a próxima saída oferecida (ou "Reservar escala" para escolher a linha e o horário). Defina o local de início e o ônibus, confirme e selecione "Dirigir".</p></div><div class="img" data-passo="4">Imagem ilustrativa do passo 4</div></li>
-      <li><span class="num">5</span><div><h3>Autorizar o navegador</h3><p>Na primeira utilização, o navegador solicitará autorização para abrir o AVS Dirigir. Recomenda-se selecionar "Sempre permitir" e, em seguida, "Abrir". Nas utilizações seguintes, a autorização não será solicitada novamente.</p></div><div class="img" data-passo="5">Imagem ilustrativa do passo 5</div></li>
-      <li><span class="num">6</span><div><h3>Início do serviço</h3><p>O jogo é aberto diretamente no serviço assumido. Bom trabalho.</p></div><div class="img" data-passo="6">Imagem ilustrativa do passo 6</div></li>
+      <li><span class="num">1</span><div><h3>Obter o AVS Dirigir</h3><p>Utilize o botão "Baixar o AVS Dirigir" desta página ou do canal Como instalar, no Discord. A AVS não envia o programa por mensagem privada.</p></div><div class="img" data-passo="1"><img src="../imagens/como-entrar/passo1.jpg?v=avs1" alt="Botão Baixar o AVS Dirigir, nesta página" loading="lazy"></div></li>
+      <li><span class="num">2</span><div><h3>Concluir a instalação</h3><p>Abra o arquivo obtido. A instalação leva cerca de um minuto e não solicita senha de administrador.</p></div><div class="img" data-passo="2"><img src="../imagens/como-entrar/passo2.jpg?v=avs1" alt="Janela do AVS Dirigir confirmando que a instalação foi concluída" loading="lazy"></div></li>
+      <li class="sem-img"><span class="num">3</span><div><h3>Confirmar a execução, se solicitado</h3><p>Caso o Windows exiba "O Windows protegeu o computador", selecione "Mais informações" e, em seguida, "Executar assim mesmo". O aviso é exibido para programas recentes, ainda não reconhecidos pelo Windows.</p></div></li>
+      <li class="sem-img"><span class="num">4</span><div><h3>Assumir a escala</h3><p>No Discord, em Escalas e linhas, selecione "Assumir escala" e confirme a próxima saída oferecida (ou "Reservar escala" para escolher a linha e o horário). Defina o local de início e o ônibus, confirme e selecione "Dirigir".</p></div></li>
+      <li class="sem-img"><span class="num">5</span><div><h3>Autorizar o navegador</h3><p>Na primeira utilização, o navegador solicitará autorização para abrir o AVS Dirigir. Recomenda-se selecionar "Sempre permitir" e, em seguida, "Abrir". Nas utilizações seguintes, a autorização não será solicitada novamente.</p></div></li>
+      <li><span class="num">6</span><div><h3>Início do serviço</h3><p>O jogo é aberto diretamente no serviço assumido. Bom trabalho.</p></div><div class="img" data-passo="6"><img src="../imagens/como-entrar/passo6.jpg?v=avs1" alt="Jogo aberto pelo AVS Dirigir já conectado ao serviço da AVS" loading="lazy"></div></li>
     </ol>
   </div>
 </section>
