@@ -1,5 +1,5 @@
 /* gerado pela Central AVS - documentos e situacao atual do vinculo (sem dados pessoais) */
-window.FAOL_DOCUMENTOS_CONFERIDO = "22/11/2026 15:44";
+window.FAOL_DOCUMENTOS_CONFERIDO = "22/11/2026 16:44";
 window.FAOL_DOCUMENTOS = {
  "FICHA-2026-0001-T66B": {
   "tipo": "Extrato da Ficha Funcional",
